@@ -6,7 +6,6 @@ test_create_template
 
 import os
 import subprocess
-
 import pytest
 
 
@@ -16,7 +15,7 @@ def run_tox(plugin):
         subprocess.check_call(
             ["tox", "-c", os.path.join(plugin, "tox.ini"), "-e", "py", "--", plugin]
         )
-    except subprocess.CalledProcessError as e:
+    except subprocess.CalledProcessError:
         pytest.fail("Subprocess fail", pytrace=True)
 
 
