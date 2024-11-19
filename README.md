@@ -1,6 +1,9 @@
 # napari-plugin-template
 
-[Copier](https://copier.readthedocs.io/en/stable/) template for authoring ([npe2](https://github.com/napari/npe2)-based) [napari](https://napari.org/) plugins.
+[Copier](https://copier.readthedocs.io/en/stable/) template for authoring RedSun plugins.
+
+> [!CAUTION]
+> This template is still a work in progress. Do not use until author will remove this notice.
 
 **NOTE: This repo is not meant to be cloned/forked directly! Please read "Getting Started" below**
 
@@ -9,79 +12,16 @@
 ### Create your plugin package
 
 Install [Copier](https://copier.readthedocs.io/en/stable/) and the [jinja2-time](https://pypi.org/project/jinja2-time/) extension.
-Optionally install the napari plugin engine [npe2](https://github.com/napari/npe2), to help validate your new plugin is configured correctly.
+Install the RedSun toolkit, SunFlare to build your plugin.
 
-Then you can generate a new napari plugin project:
+Then you can generate a new RedSun plugin project:
 
 ```bash
 python -m pip install copier jinja2-time
-python -m pip install npe2
 copier copy --trust https://github.com/napari/napari-plugin-template new-plugin-name
 ```
 
-Copier prompts you for information regarding your plugin
-(A new folder will be created in your current working directory):
-
-```bash
-full_name [Napari Developer]: Ramon y Cajal
-email [yourname@example.com]: ramon@cajal.es
-github_username_or_organization [githubuser]: neuronz52
-# NOTE: for packages whose primary purpose is to be a napari plugin, we
-# recommend using the 'napari-' prefix in the package name.
-# If your package provides functionality outside of napari, you may
-# choose to leave napari out of the name.
-plugin_name [napari-foobar]: napari-growth-cone-finder
-Select github_repository_url:
-1 - https://github.com/neuronz52/napari-growth-cone-finder
-2 - provide later
-Choose from 1, 2 [1]:
-module_name [growth_cone_finder]: napari_growth_cone_finder
-display_name [napari FooBar]: Growth Cone Finder
-short_description [A simple plugin to use with napari]:
-# you can select from various plugin template examples
-include_reader_plugin [y]:
-include_writer_plugin [y]:
-include_sample_data_plugin [y]:
-include_dock_widget_plugin [y]:
-use_git_tags_for_versioning [n]:
-Select license:
-1 - BSD-3
-2 - MIT
-3 - Mozilla Public License 2.0
-4 - Apache Software License 2.0
-5 - GNU LGPL v3.0
-6 - GNU GPL v3.0
-Choose from 1, 2, 3, 4, 5, 6 (1, 2, 3, 4, 5, 6) [1]:
-
-```
-
-You just created a minimal napari plugin, complete with tests
-and ready for automatic deployment!
-
-For more detailed information on each prompt see the [prompts reference](./PROMPTS.md).
-
-```no-highlight
-napari-growth-cone-finder/
-│
-├── .github
-│   └── workflows
-│      └── test_and_deploy.yml
-├── LICENSE
-├── MANIFEST.in
-├── napari_growth_cone_finder
-│   ├── __init__.py
-│   ├── _widget.py
-│   ├── _reader.py
-│   ├── napari.yaml
-│   └── _tests
-│       ├── __init__.py
-│       ├── test_widget.py
-│       └── test_reader.py
-├── pyproject.toml
-├── README.md
-├── setup.cfg
-└── tox.ini
-```
+Copier prompts you for information regarding your plugin. See [prompts reference](./PROMPTS.md) for a detailed description.
 
 ### Initialize a git repository in your package
 
@@ -202,6 +142,8 @@ We recommend following the getting started guides for one of the following docum
 2. [MkDocs]
 3. [JupyterBook]
 
+Alternatively, you can also create your documentation on GitHub using [Wikis]
+
 ### Pre-commit
 
 This template includes a default yaml configuration for [pre-commit](https://pre-commit.com/).
@@ -227,7 +169,7 @@ You will still need to enable Dependabot in your github settings, [see the instr
 ## Features
 
 - Installable [PyPI] package
-- [tox] test suite, testing various python versions and platforms.
+- [nox] test suite, testing various python versions and platforms.
 - `README.md` file that contains useful information about your plugin
 - Continuous integration configuration for [github actions] that handles testing
   and deployment of tagged releases
@@ -265,11 +207,12 @@ is free and open source software.
 [napari]: https://github.com/napari/napari
 [npe2]: https://github.com/napari/npe2
 [pypi]: https://pypi.org/
-[tox]: https://tox.readthedocs.io/en/latest/
+[nox]: https://nox.thea.codes/en/stable/
 [file an issue]: https://github.com/napari/napari-plugin-template/issues
 [sphinx]: https://www.sphinx-doc.org/en/master/usage/quickstart.html
 [mkdocs]: https://www.mkdocs.org/getting-started/
 [jupyterbook]: https://jupyterbook.org/en/stable/start/your-first-book.html
+[wikis]: https://docs.github.com/en/communities/documenting-your-project-with-wikis
 [mit]: http://opensource.org/licenses/MIT
 [mpl v2.0]: https://www.mozilla.org/media/MPL/2.0/index.txt
 [bsd-3]: http://opensource.org/licenses/BSD-3-Clause
