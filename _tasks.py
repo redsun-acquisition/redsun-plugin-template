@@ -1,7 +1,6 @@
 from argparse import ArgumentParser
 import logging
 import os
-from pathlib import Path
 import re
 import subprocess
 import sys
@@ -21,38 +20,6 @@ def pypi_package_name_compliance(plugin_name):
     if re.search(r"_", plugin_name):
         logger.error("PyPI.org and pip discourage package names with underscores.")
         sys.exit(1)
-
-
-def validate_manifest(module_name, project_directory):
-    """Validate the new plugin repository against napari requirements."""
-    try:
-        from npe2 import PluginManifest
-    except ImportError as e:
-        logger.error("npe2 is not installed. Skipping manifest validation.")
-        return True
-
-    current_directory = Path('.').absolute()
-    if (current_directory.match(project_directory) and not Path(project_directory).is_absolute()):
-        project_directory = current_directory
-
-    path=Path(project_directory) / "src" / Path(module_name) / "napari.yaml"
-
-    valid = False
-    try:
-        pm = PluginManifest.from_file(path)
-        msg = f"✔ Manifest for {(pm.display_name or pm.name)!r} valid!"
-        valid = True
-    except PluginManifest.ValidationError as err:
-        msg = f"🅇 Invalid! {err}"
-        logger.error(msg.encode("utf-8"))
-        sys.exit(1)
-    except Exception as err:
-        msg = f"🅇 Failed to read {path!r}. {type(err).__name__}: {err}"
-        logger.error(msg.encode("utf-8"))
-        sys.exit(1)
-    else:
-        logger.info(msg.encode("utf-8"))
-        return valid
 
 
 def initialize_new_repository(
@@ -206,7 +173,6 @@ if __name__=="__main__":
         install_precommit = False
     module_name_pep8_compliance(args.module_name)
     pypi_package_name_compliance(args.plugin_name)
-    validate_manifest(args.module_name, args.project_directory)
     msg = initialize_new_repository(
         install_precommit=install_precommit,
         plugin_name=args.plugin_name,
