@@ -1,0 +1,16 @@
+{% if use_git_tags_for_versioning %}
+try:
+    from ._version import version as __version__
+except ImportError:
+    __version__ = "unknown"
+{% else -%}
+__version__ = "0.1.0"
+{% endif -%}
+
+from .{{ module_import }} import {{ class_baseline }}
+from .config import {{ config_import }}
+
+__all__ = (
+    "{{ class_import }}",
+    "{{ config_import }}",
+)

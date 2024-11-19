@@ -38,23 +38,14 @@ classifiers = [
 requires-python = ">=3.9"
 dependencies = [
     "numpy",
-{% if include_widget_plugin %}    "magicgui",
-    "qtpy",
-    "scikit-image",
-{% endif %}]
+]
 
 [project.optional-dependencies]
-testing = [
-    "tox",
+dev = [
+    "nox",
     "pytest",  # https://docs.pytest.org/en/latest/contents.html
     "pytest-cov",  # https://pytest-cov.readthedocs.io/en/latest/
-{% if include_widget_plugin %}    "pytest-qt",  # https://pytest-qt.readthedocs.io/en/latest/
-    "napari",
-    "pyqt5",
-{% endif %}]
-
-[project.entry-points."napari.manifest"]
-{{plugin_name}} = "{{module_name}}:napari.yaml"
+]
 
 {% if github_repository_url != 'provide later' -%}
 [project.urls]
