@@ -1,12 +1,12 @@
 .DEFAULT_GOAL := help
 
 .PHONY: clean
-clean: clean-tox clean-build clean-pyc ## Remove all file artifacts
+clean: clean-nox clean-build clean-pyc ## Remove all file artifacts
 
-.PHONY: clean-tox
-clean-tox: ## Remove tox testing artifacts
+.PHONY: clean-nox
+clean-nox: ## Remove nox testing artifacts
 	@echo "+ $@"
-	@rm -rf .tox/
+	@rm -rf .nox/
 
 .PHONY: clean-build
 clean-build: ## Remove build artifacts
@@ -25,12 +25,12 @@ clean-pyc: ## Remove Python file artifacts
 .PHONY: test
 test: ## Run tests quickly with the default Python
 	@echo "+ $@"
-	@tox -e py
+	@nox -e py
 
 .PHONY: test-all
-test-all: ## Run tests on every Python version with tox
+test-all: ## Run tests on every Python version with nox
 	@echo "+ $@"
-	@tox
+	@nox
 
 .PHONY: help
 help:
