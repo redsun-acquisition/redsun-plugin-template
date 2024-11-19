@@ -1,6 +1,5 @@
 copier
+copier-templates-extensions
 jinja2-time
-npe2
 pytest
 pytest-copie
-tox
