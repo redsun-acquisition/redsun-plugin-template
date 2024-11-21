@@ -28,7 +28,7 @@ display_name:
         {% endif %}
 module_name:
     placeholder: "{{ plugin_name|lower|replace('-', '_') }}"
-    help: Plugin module name
+    help: Plugin module name (lowercase, no spaces, may contain underscores)
     type: str
 short_description:
     placeholder: My new RedSun plugin
@@ -111,6 +111,8 @@ _exclude:
     - ".svn"
     - "*licenses*"
     - "_tasks.py"
+# TODO: re-enable these tasks after understanding
+# how they actually work and adjust them accordingly
 # _tasks:
 #     - [
 #       "{{ _copier_python }}", # which python
