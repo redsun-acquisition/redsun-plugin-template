@@ -1,3 +1,15 @@
+email:
+    placeholder: yourname@example.com
+    help: Email address
+    type: str
+full_name:
+    placeholder: Napari Developer
+    help: Developer name
+    type: str
+github_username_or_organization:
+    placeholder: githubuser
+    help: Github user or organisation name
+    type: str
 plugin_name:
     placeholder: redsun-foobar
     help: The name of your plugin
@@ -26,18 +38,6 @@ short_description:
         {% if not (short_description | regex_search('(.|\s)*\S(.|\s)*')) %}
         Description must not be empty
         {% endif %}
-email:
-    placeholder: yourname@example.com
-    help: Email address
-    type: str
-full_name:
-    placeholder: Napari Developer
-    help: Developer name
-    type: str
-github_username_or_organization:
-    placeholder: githubuser
-    help: Github user or organisation name
-    type: str
 github_repository_url:
     default: provide later
     help: Github repository URL
