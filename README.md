@@ -11,14 +11,36 @@
 
 ### Create your plugin package
 
-Install [Copier](https://copier.readthedocs.io/en/stable/) and the [jinja2-time](https://pypi.org/project/jinja2-time/) extension.
-Install the RedSun toolkit, SunFlare to build your plugin.
+For a safe usage of the template, it is reccomended to create a new environment before generating it:
+
+<details>
+<summary><strong>conda</strong></summary>
+
+```bash
+conda create -n redsun-template python=3.10
+conda activate redsun-template
+```
+
+</details> 
+<details>
+<summary><strong>mamba</strong></summary>
+
+```bash
+mamba create -n redsun-template python=3.10
+mamba activate redsun-template
+```
+</details>
+
+After creating the environment, install the requirements listed in `requirements.txt`:
+
+```bash
+python -m pip install -r requirements.txt
+```
 
 Then you can generate a new RedSun plugin project:
 
 ```bash
-python -m pip install copier jinja2-time
-copier copy --trust https://github.com/napari/napari-plugin-template new-plugin-name
+copier copy --trust https://github.com/jacopoabramo/redsun-plugin-template my-redsun-plugin
 ```
 
 Copier prompts you for information regarding your plugin. See [prompts reference](./PROMPTS.md) for a detailed description.
@@ -26,12 +48,12 @@ Copier prompts you for information regarding your plugin. See [prompts reference
 ### Initialize a git repository in your package
 
 NOTE: This is important not only for version management, but also if you want to
-pip install your package locally for testing with `pip install -e .`. (because
+pip install your package locally for testing with `pip install -e .` (because
 the version of your package is managed using git tags,
 [see below](#automatic-deployment-and-version-management))
 
 ```bash
-cd napari-growth-cone-finder
+cd my-redsun-plugin
 git init
 git add .
 git commit -m 'initial commit'
@@ -47,7 +69,7 @@ git commit -m 'initial commit'
    # here, continuing with the example above...
    # but replace with your own username and repo name
 
-   git remote add origin https://github.com/neuronz52/napari-growth-cone-finder.git
+   git remote add origin https://github.com/yourgitusername/my-redsun-plugin.git
    git push -u origin main
    ```
 
@@ -66,7 +88,7 @@ When the tests are done, test coverage will be viewable at
 
 You will need to enable the [codecov](https://github.com/apps/codecov) github app
 for this to work. See [here](https://github.com/apps/codecov/installations/new)
-to install the codecov github app and give it access to your napari plugin repository.
+to install the codecov github app and give it access to your RedSun plugin repository.
 
 ### Set up automatic deployments
 
@@ -117,7 +139,7 @@ and available for pip install with:
 
 ```bash
 # for example
-pip install napari-growth-cone-finder
+pip install my-redsun-plugin
 ```
 
 ### Running tests locally
@@ -179,11 +201,7 @@ You will still need to enable Dependabot in your github settings, [see the instr
 
 ## Resources
 
-Please consult the [napari plugin
-docs](https://napari.org/stable/plugins/index.html) for more information on
-how to create a plugin.
-
-Details on why this plugin template is using the `src` layout can be found [here](https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure) and [here](https://hynek.me/articles/testing-packaging/)
+Details on why this plugin template is using the `src` layout can be found [here](https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure) and [here](https://hynek.me/articles/testing-packaging/).
 
 ## Issues
 
@@ -196,16 +214,7 @@ along with a detailed description.
 Distributed under the terms of the [BSD-3] license, `napari-plugin-template`
 is free and open source software.
 
-[napari organization]: https://github.com/napari/
-[gitter_badge]: https://badges.gitter.im/Join%20Chat.svg
-[gitter]: https://gitter.im/napari/napari-plugin-template?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge "Join Chat on Gitter.im"
-[travis_badge]: https://travis-ci.org/napari/napari-plugin-template.svg?branch=main
-[travis]: https://travis-ci.org/napari/napari-plugin-template "See Build Status on Travis CI"
-[docs_badge]: https://readthedocs.org/projects/napari-plugin-template/badge/?version=latest
-[documentation]: https://napari-plugin-template.readthedocs.io/en/latest/ "Documentation"
 [copier]: https://github.com/copier-org/copier
-[napari]: https://github.com/napari/napari
-[npe2]: https://github.com/napari/npe2
 [pypi]: https://pypi.org/
 [nox]: https://nox.thea.codes/en/stable/
 [file an issue]: https://github.com/napari/napari-plugin-template/issues
