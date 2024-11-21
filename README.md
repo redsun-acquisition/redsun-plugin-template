@@ -3,7 +3,7 @@
 [Copier](https://copier.readthedocs.io/en/stable/) template for authoring RedSun plugins.
 
 > [!CAUTION]
-> This template is still a work in progress. Do not use until author will remove this notice.
+> This template is still a work in progress. You should not use this until author will remove this notice.
 
 **NOTE: This repo is not meant to be cloned/forked directly! Please read "Getting Started" below**
 
