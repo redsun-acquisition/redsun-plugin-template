@@ -3,7 +3,7 @@ email:
     help: Email address
     type: str
 full_name:
-    placeholder: Napari Developer
+    placeholder: RedSun plugin developer
     help: Developer name
     type: str
 github_username_or_organization:
