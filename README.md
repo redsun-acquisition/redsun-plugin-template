@@ -14,7 +14,7 @@
 For a safe usage of the template, it is reccomended to create a new environment before generating it:
 
 <details>
-<summary><strong>conda</strong></summary>
+<summary>conda</summary>
 
 ```bash
 conda create -n redsun-template python=3.10
@@ -23,7 +23,7 @@ conda activate redsun-template
 
 </details> 
 <details>
-<summary><strong>mamba</strong></summary>
+<summary>mamba</strong></summary>
 
 ```bash
 mamba create -n redsun-template python=3.10
