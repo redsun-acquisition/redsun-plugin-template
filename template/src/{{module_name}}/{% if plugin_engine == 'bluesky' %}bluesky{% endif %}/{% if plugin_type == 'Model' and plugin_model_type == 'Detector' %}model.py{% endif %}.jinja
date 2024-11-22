@@ -1,0 +1,67 @@
+from typing import TYPE_CHECKING
+
+from sunflare.engine.bluesky import (
+    {{ plugin_base }}
+)
+
+from .config import MyDetectorInfo
+
+if TYPE_CHECKING:
+
+class {{ class_baseline }}({{ plugin_base }}):
+    def __init__(self, name: str, model_info: 'MyDetectorInfo') -> None:
+
+        # in this function, initialize your detector API via
+        # whatever python package it uses; after initializing a detector,
+        # define the initial exposure time for your detector
+
+        # if you want to use default values,
+        # delete all parameters after "exposure"
+        super().__init__(name, model_info, exposure, 
+                        pixel_photometric, bits_per_pixel, binning, offset, shape)
+    
+    {%- if mm_support -%} 
+    def arm(self, frame_count: "Optional[int]" = None) -> None:  # noqa: D102
+        # implement
+        super().arm(frame_count)
+
+    def start(self) -> None:  # noqa: D102
+        # implement
+        super().start()
+
+    def stop(self) -> None:  # noqa: D102
+        # implement
+        super().stop()
+
+    def is_stopped(self) -> bool:  # noqa: D102
+        # implement
+        return super().is_stopped()
+
+    def pop_data(  # noqa: D102
+        self, timeout: Optional[float] = None
+    ) -> "Tuple[npt.NDArray[Any], dict[str, Any]]": 
+        # implement
+        return super().pop_data(timeout)
+    {%- else -%}
+    def arm(self, frame_count: "Optional[int]" = None) -> None:  # noqa: D102
+        # implement
+        ...
+
+    def start(self) -> None:  # noqa: D102
+        # implement
+        ...
+
+    def stop(self) -> None:  # noqa: D102
+        # implement
+        ...
+
+    def is_stopped(self) -> bool:  # noqa: D102
+        # implement
+        ...
+
+    def pop_data(  # noqa: D102
+        self, timeout: Optional[float] = None
+    ) -> "Tuple[npt.NDArray[Any], dict[str, Any]]": 
+        # implement
+        ...
+    {%- endif -%}

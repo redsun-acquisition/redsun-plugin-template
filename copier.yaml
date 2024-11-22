@@ -45,6 +45,13 @@ github_repository_url:
     choices:
         - provide later
         - https://github.com/{{github_username_or_organization}}/{{plugin_name}}
+plugin_engine:
+    default: ExEngine
+    help: Which engine does your plugin use?
+    type: str
+    choices:
+        - ExEngine
+        - Bluesky
 plugin_type:
     default: Model
     help: What type of plugin is this?
@@ -64,14 +71,14 @@ mm_support:
     default: false
     help: Is your device supported by Micro-Manager?
     type: bool
-    when : "{{ plugin_type == 'Model' }}"
+    when : "{{ plugin_type == 'Model' and plugin_engine == 'ExEngine' }}"
 plugin_motor_type: # required for exengine
     type: str
     help: Is your motor single or dual-axis (XY)?
     choices:
         - Single
         - Dual
-    when: "{{ plugin_type == 'Model' and plugin_model_type == 'Motor' }}"
+    when: "{{ plugin_type == 'Model' and plugin_model_type == 'Motor' and plugin_engine == 'ExEngine' }}"
 use_git_tags_for_versioning:
     default: false
     help: Use git tags for versioning?

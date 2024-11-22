@@ -1,0 +1,21 @@
+from typing import ClassVar
+from psygnal import SignalGroupDescriptor
+from sunflare.config import {{ config_base }}
+
+__all__ = ["{{ config_info }}"]
+
+# Add your custom configuration variables here
+class {{ config_info }}({{ config_base }}):
+    # begin of user code
+    # add your custom configuration variables here;
+    # they should follow the PEP-8 naming convention;
+    # if possible, they should be single words only
+    
+    string: str
+    integer: int
+    boolean: bool
+
+    # ... and so on
+
+    # end of user code
+    events: ClassVar[SignalGroupDescriptor] = SignalGroupDescriptor()

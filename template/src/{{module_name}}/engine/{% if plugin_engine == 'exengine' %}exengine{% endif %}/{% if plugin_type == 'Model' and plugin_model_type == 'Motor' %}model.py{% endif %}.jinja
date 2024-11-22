@@ -6,7 +6,7 @@ from sunflare.engine.exengine import (
 
 if TYPE_CHECKING:
     from sunflare.config import MotorModelInfo
-    {%- if not plugin_mm_support -%}
+    {%- if not mm_support -%}
     import numpy.typing as npt
 
     {%- endif -%}
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 
 
     {%- endif -%}
-class MyMotor({{ plugin_base }}):
+class {{ class_baseline }}({{ plugin_base }}):
     def __init__(self, name: str, model_info: "MotorModelInfo") -> None:
         
         # in this function, initialize your detector API via
@@ -27,7 +27,7 @@ class MyMotor({{ plugin_base }}):
         # define the initial exposure time for your detector
         super().__init__(name, model_info)
     
-    {%- if not mm_support and plugin_base == 'ExEngineSingleMotorModel' -%}
+    {%- if not plugin_mm_support and plugin_base == 'ExEngineSingleMotorModel' -%}
     def set_position(self, position: float) -> None: 
         # implement
         raise NotImplementedError
@@ -47,7 +47,7 @@ class MyMotor({{ plugin_base }}):
     def stop_position_sequence(self) -> None:
         # implement
         raise NotImplementedError
-    {%- elif not mm_support and plugin_base == 'ExEngineDoubleMotorModel' -%}
+    {%- elif not plugin_mm_support and plugin_base == 'ExEngineDoubleMotorModel' -%}
     def set_position(self, x: float, y: float) -> None:
         # implement
         raise NotImplementedError
@@ -68,4 +68,3 @@ class MyMotor({{ plugin_base }}):
         # implement
         raise NotImplementedError
     {%- endif -%}
-{% endif %}
