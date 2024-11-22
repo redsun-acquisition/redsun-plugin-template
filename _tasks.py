@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from dataclasses import dataclass
 import logging
 import os
 import re
@@ -6,7 +7,7 @@ import subprocess
 import sys
 
 
-def module_name_pep8_compliance(module_name):
+def module_name_pep8_compliance(module_name: str) -> None:
     """Validate that the plugin module name is PEP8 compliant."""
     if not re.match(r"^[a-z][_a-z0-9]+$", module_name):
         link = "https://www.python.org/dev/peps/pep-0008/#package-and-module-names"
@@ -15,7 +16,7 @@ def module_name_pep8_compliance(module_name):
         sys.exit(1)
 
 
-def pypi_package_name_compliance(plugin_name):
+def pypi_package_name_compliance(plugin_name: str) -> None:
     """Check there are no underscores in the plugin name"""
     if re.search(r"_", plugin_name):
         logger.error("PyPI.org and pip discourage package names with underscores.")
@@ -23,11 +24,11 @@ def pypi_package_name_compliance(plugin_name):
 
 
 def initialize_new_repository(
-        install_precommit=False,
-        plugin_name="napari-foobar",
-        github_repository_url="provide later",
-        github_username_or_organization="githubuser",
-    ):
+        install_precommit: bool = False,
+        plugin_name: str = "redsun-foobar",
+        github_repository_url: str = "provide later",
+        github_username_or_organization: str ="githubuser",
+    ) -> str:
     """Initialize new plugin repository with git, and optionally pre-commit."""
 
     msg = ""
@@ -130,13 +131,18 @@ Your plugin template is ready!  Next steps:
             User Support = https://github.com/your-repo-username/your-repo-name/issues"""
 
     msg += """
-    5. Read the README for more info: https://github.com/napari/napari-plugin-template
-    6. We've provided a template description for your plugin page on the napari hub at `.napari-hub/DESCRIPTION.md`.
-    You'll likely want to edit this before you publish your plugin.
-    7. Consider customizing the rest of your plugin metadata for display on the napari hub:
-    https://github.com/chanzuckerberg/napari-hub/blob/main/docs/customizing-plugin-listing.md
+    5. Read the README for more info: https://github.com/jacopoabramo/redsun-plugin-template
     """
     return msg
+
+@dataclass
+class Arguments:
+    plugin_name: str
+    module_name: str
+    project_directory: str
+    install_precommit: bool
+    github_repository_url: str
+    github_username_or_organization: str
 
 
 if __name__=="__main__":
@@ -164,7 +170,7 @@ if __name__=="__main__":
                         dest="github_username_or_organization",
                         help="Github user or organisation name",
                         default='githubuser')
-    args = parser.parse_args()
+    args = Arguments(**vars(parser.parse_args()))
 
     # Since bool("False") returns True, we need to check the actual string value
     if str(args.install_precommit).lower() == "true":
