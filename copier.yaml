@@ -1,10 +1,10 @@
-email:
-    placeholder: yourname@example.com
-    help: Email address
-    type: str
 full_name:
     placeholder: RedSun plugin developer
     help: Developer name
+    type: str
+email:
+    placeholder: yourname@example.com
+    help: Email address
     type: str
 github_username_or_organization:
     placeholder: githubuser
@@ -90,7 +90,7 @@ install_precommit:
     type: bool
     when: false
 license:
-    default: BSD-3
+    default: Apache Software License 2.0
     help: Which licence do you want your plugin code to have?
     type: str
     choices:
