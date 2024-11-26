@@ -27,7 +27,7 @@ def run_tox(plugin) -> None:
 @pytest.mark.parametrize("plugin_motor_type", ["Single", "Dual"])
 @pytest.mark.filterwarnings("ignore::UserWarning")
 def test_create_template_model_exengine(
-    copie: "Copie", plugin_model_type, mm_support, plugin_motor_type
+    copie: "Copie", plugin_model_type: str, mm_support: bool, plugin_motor_type: str
 ) -> None:
     """Create a new plugin."""
 
@@ -48,7 +48,7 @@ def test_create_template_model_exengine(
         "install_precommit": False,
         "license": "MIT",
     }
-    
+
     if plugin_model_type == "Motor":
         answers["plugin_motor_type"] = plugin_motor_type
 
@@ -92,7 +92,7 @@ def test_create_template_model_bluesky(copie: "Copie", plugin_model_type: str) -
         "install_precommit": False,
         "license": "MIT",
     }
-    
+
     result = copie.copy(extra_answers=answers)
 
     assert result.exit_code == 0
@@ -111,6 +111,7 @@ def test_create_template_model_bluesky(copie: "Copie", plugin_model_type: str) -
     assert result.project_dir.joinpath(
         "src", "foo_bar", "engine", "bluesky", "model.py"
     ).is_file()
+
 
 # @pytest.mark.parametrize("include_reader_plugin", [True, False])
 # @pytest.mark.parametrize("include_writer_plugin", [True, False])
