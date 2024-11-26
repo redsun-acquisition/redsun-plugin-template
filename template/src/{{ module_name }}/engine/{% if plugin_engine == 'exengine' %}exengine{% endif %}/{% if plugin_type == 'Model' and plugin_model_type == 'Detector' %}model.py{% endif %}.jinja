@@ -44,23 +44,23 @@ class {{ class_baseline }}({{ plugin_base }}):
     {% else -%}
     def arm(self, frame_count: "Optional[int]" = None) -> None:  # noqa: D102
         # implement
-        ...
+        raise NotImplementedError()
 
     def start(self) -> None:  # noqa: D102
         # implement
-        ...
+        raise NotImplementedError()
 
     def stop(self) -> None:  # noqa: D102
         # implement
-        ...
+        raise NotImplementedError()
 
     def is_stopped(self) -> bool:  # noqa: D102
         # implement
-        ...
+        raise NotImplementedError()
 
     def pop_data(  # noqa: D102
         self, timeout: Optional[float] = None
     ) -> "Tuple[npt.NDArray[Any], dict[str, Any]]": 
         # implement
-        ...
+        raise NotImplementedError()
     {% endif -%}
