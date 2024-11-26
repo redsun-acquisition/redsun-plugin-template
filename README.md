@@ -146,7 +146,7 @@ pip install my-redsun-plugin
 
 Tests are automatically setup to run on github when you push to your repository.
 
-You can run your tests locally with [pytest](https://docs.pytest.org/en/7.1.x/).
+You can run your tests locally with [pytest](https://docs.pytest.org/en/stable/).
 You'll need to make sure that your package is installed in your environment,
 along with testing requirements (specified in the setup.cfg `extras_require` section):
 
