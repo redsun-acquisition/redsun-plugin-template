@@ -12,6 +12,7 @@ github_username_or_organization:
     type: str
 plugin_name:
     placeholder: redsun-foobar
+    default: redsun-foobar
     help: The name of your plugin
     type: str
     validator: >-
@@ -20,6 +21,7 @@ plugin_name:
         {% endif %}
 display_name:
     placeholder: RedSun FooBar
+    default: RedSun FooBar
     help: Display name for your plugin
     type: str
     validator: >-
@@ -28,8 +30,13 @@ display_name:
         {% endif %}
 module_name:
     placeholder: "{{ plugin_name|lower|replace('-', '_') }}"
+    default: "{{ plugin_name|lower|replace('-', '_') }}"
     help: Plugin module name (lowercase, no spaces, may contain underscores)
     type: str
+    validator: >-
+        {% if not (module_name | regex_search('^[a-z][a-z0-9_]+$')) %}
+        module_name must be lowercase, no spaces, and may contain underscores.
+        {% endif %}
 short_description:
     placeholder: My new RedSun plugin
     help: Short description of what your plugin does
@@ -90,7 +97,7 @@ install_precommit:
     type: bool
     when: false
 license:
-    default: Apache Software License 2.0
+    default: BSD-3
     help: Which licence do you want your plugin code to have?
     type: str
     choices:
