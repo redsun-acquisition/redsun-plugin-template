@@ -14,6 +14,7 @@ class ContextUpdater(ContextHook):
             else: # Bluesky
                 context = self._chose_bluesky_context(context)        
             context = self._set_config_info(context)
+        context["plugin_engine"] = context["plugin_engine"].lower()
         return context
     
     ########################################################
