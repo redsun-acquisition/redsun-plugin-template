@@ -7,9 +7,8 @@ from sunflare.engine.exengine import (
 from .config import MyDetectorInfo
 
 if TYPE_CHECKING:
-    from sunflare.config import PixelPhotometricTypes
 
-    from typing import Union, Optional, Tuple, Any
+    from typing import Optional, Tuple, Any
     
     import numpy.typing as npt
 
@@ -17,25 +16,9 @@ if TYPE_CHECKING:
 class {{ class_baseline }}({{ plugin_base }}):
     def __init__(self, name: str, model_info: 'MyDetectorInfo') -> None:
 
-        # in this function, initialize your detector API via
-        # whatever python package it uses; after initializing a detector,
-        # define the initial exposure time for your detector
-        exposure: "Union[int, float]" = 100 # dummy value
-
-        # you can also define the following parameters, or delete them and use
-        # the default values of the DetectorModel class
-        pixel_photometric: "list[PixelPhotometricTypes]" = [PixelPhotometricTypes.GRAY]
-        bits_per_pixel: "Optional[set[int]]" = {8}
-        binning: "Optional[list[int]]" = [1]
-        offset: "Optional[Tuple[int, int]]" = (0, 0)
-        shape: "Optional[Tuple[int, int]]" = None
-
-        # if you want to use default values,
-        # delete all parameters after "exposure"
-        super().__init__(name, model_info, exposure, 
-                        pixel_photometric, bits_per_pixel, binning, offset, shape)
+        super().__init__(name, model_info)
     
-    {%- if mm_support -%} 
+    {% if mm_support -%} 
     def arm(self, frame_count: "Optional[int]" = None) -> None:  # noqa: D102
         # implement
         super().arm(frame_count)
@@ -57,7 +40,8 @@ class {{ class_baseline }}({{ plugin_base }}):
     ) -> "Tuple[npt.NDArray[Any], dict[str, Any]]": 
         # implement
         return super().pop_data(timeout)
-    {%- else -%}
+
+    {% else -%}
     def arm(self, frame_count: "Optional[int]" = None) -> None:  # noqa: D102
         # implement
         ...
@@ -79,4 +63,4 @@ class {{ class_baseline }}({{ plugin_base }}):
     ) -> "Tuple[npt.NDArray[Any], dict[str, Any]]": 
         # implement
         ...
-    {%- endif -%}
+    {% endif -%}
