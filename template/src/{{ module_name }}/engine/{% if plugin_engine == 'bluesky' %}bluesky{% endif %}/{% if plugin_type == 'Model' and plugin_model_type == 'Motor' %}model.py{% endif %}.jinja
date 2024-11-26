@@ -26,12 +26,10 @@ class {{ class_baseline }}({{ plugin_base }}):
 
     # TODO: define a proper type
     # for the value parameter
-    @abstractmethod
     def set(self, value: int) -> Status:
         """Return a ``Status`` that is marked done when the device is done moving."""
         raise NotImplementedError()
 
-    @abstractmethod
     def locate(self) -> Location[Union[float, int]]:
         """Return the current location of a Device.
 
