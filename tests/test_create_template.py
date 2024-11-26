@@ -3,7 +3,6 @@ test_create_template
 --------------------
 """
 
-
 import os
 import subprocess
 import pytest
@@ -23,27 +22,37 @@ def run_tox(plugin) -> None:
         pytest.fail("Subprocess fail", pytrace=True)
 
 
-def test_create_template_exengine(copie: "Copie") -> None:
+@pytest.mark.parametrize("plugin_model_type", ["Detector", "Motor"])
+@pytest.mark.parametrize("mm_support", [True, False])
+@pytest.mark.parametrize("plugin_motor_type", ["Single", "Dual"])
+@pytest.mark.filterwarnings("ignore::UserWarning")
+def test_create_template_model_exengine(
+    copie: "Copie", plugin_model_type, mm_support, plugin_motor_type
+) -> None:
     """Create a new plugin."""
-    result = copie.copy(
-        extra_answers={
-            "full_name": "plugin bot",
-            "email" : "yourmail@mail.com",
-            "github_username_or_organization": "plugin",
-            "plugin_name": "foo-bar",
-            "display_name": "Foo Bar",
-            "module_name": "foo_bar",
-            "short_description": "Super fast foo for all the bars",
-            "github_username_or_organization": "githubuser",
-            "github_repository_url": "provide later",
-            "plugin_engine": "ExEngine",
-            "plugin_type": "Model",
-            "plutin_model_type": "Detector",
-            "mm_support": False,
-            "use_git_tags_for_versioning": False,
-            "install_precommit": False,
-            "license": "MIT"
-        })
+
+    answers = {
+        "full_name": "plugin bot",
+        "email": "yourmail@mail.com",
+        "plugin_name": "foo-bar",
+        "display_name": "Foo Bar",
+        "module_name": "foo_bar",
+        "short_description": "Super fast foo for all the bars",
+        "github_username_or_organization": "githubuser",
+        "github_repository_url": "provide later",
+        "plugin_engine": "ExEngine",
+        "plugin_type": "Model",
+        "plugin_model_type": plugin_model_type,
+        "mm_support": mm_support,
+        "use_git_tags_for_versioning": False,
+        "install_precommit": False,
+        "license": "MIT",
+    }
+    
+    if plugin_model_type == "Motor":
+        answers["plugin_motor_type"] = plugin_motor_type
+
+    result = copie.copy(extra_answers=answers)
 
     assert result.exit_code == 0
     assert result.exception is None
@@ -52,6 +61,56 @@ def test_create_template_exengine(copie: "Copie") -> None:
         assert f.readline() == "# foo-bar\n"
     assert result.project_dir.joinpath("src").is_dir()
     assert result.project_dir.joinpath("src", "foo_bar", "__init__.py").is_file()
+    assert result.project_dir.joinpath(
+        "src", "foo_bar", "engine", "exengine", "__init__.py"
+    ).is_file()
+    assert result.project_dir.joinpath(
+        "src", "foo_bar", "engine", "exengine", "config.py"
+    ).is_file()
+    assert result.project_dir.joinpath(
+        "src", "foo_bar", "engine", "exengine", "model.py"
+    ).is_file()
+
+
+@pytest.mark.parametrize("plugin_model_type", ["Detector", "Motor"])
+def test_create_template_model_bluesky(copie: "Copie", plugin_model_type: str) -> None:
+    """Create a new plugin."""
+
+    answers = {
+        "full_name": "plugin bot",
+        "email": "yourmail@mail.com",
+        "plugin_name": "foo-bar",
+        "display_name": "Foo Bar",
+        "module_name": "foo_bar",
+        "short_description": "Super fast foo for all the bars",
+        "github_username_or_organization": "githubuser",
+        "github_repository_url": "provide later",
+        "plugin_engine": "Bluesky",
+        "plugin_type": "Model",
+        "plugin_model_type": plugin_model_type,
+        "use_git_tags_for_versioning": False,
+        "install_precommit": False,
+        "license": "MIT",
+    }
+    
+    result = copie.copy(extra_answers=answers)
+
+    assert result.exit_code == 0
+    assert result.exception is None
+    assert result.project_dir.is_dir()
+    with open(result.project_dir / "README.md") as f:
+        assert f.readline() == "# foo-bar\n"
+    assert result.project_dir.joinpath("src").is_dir()
+    assert result.project_dir.joinpath("src", "foo_bar", "__init__.py").is_file()
+    assert result.project_dir.joinpath(
+        "src", "foo_bar", "engine", "bluesky", "__init__.py"
+    ).is_file()
+    assert result.project_dir.joinpath(
+        "src", "foo_bar", "engine", "bluesky", "config.py"
+    ).is_file()
+    assert result.project_dir.joinpath(
+        "src", "foo_bar", "engine", "bluesky", "model.py"
+    ).is_file()
 
 # @pytest.mark.parametrize("include_reader_plugin", [True, False])
 # @pytest.mark.parametrize("include_writer_plugin", [True, False])
