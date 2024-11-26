@@ -7,7 +7,7 @@ from sunflare.engine.exengine import (
 if TYPE_CHECKING:
     from sunflare.config import MotorModelInfo
 
-    {%- endif -%}
+
 class {{ class_baseline }}({{ plugin_base }}):
     def __init__(self, name: str, model_info: "MotorModelInfo") -> None:
         
