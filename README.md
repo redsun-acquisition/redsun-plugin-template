@@ -40,7 +40,7 @@ python -m pip install -r requirements.txt
 Then you can generate a new RedSun plugin project:
 
 ```bash
-copier copy --trust https://github.com/jacopoabramo/redsun-plugin-template my-redsun-plugin
+copier copy --trust https://github.com/redsun-acquisition/redsun-plugin-template my-redsun-plugin
 ```
 
 Copier prompts you for information regarding your plugin. See [prompts reference](./PROMPTS.md) for a detailed description.

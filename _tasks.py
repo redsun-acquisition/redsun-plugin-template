@@ -131,7 +131,7 @@ Your plugin template is ready!  Next steps:
             User Support = https://github.com/your-repo-username/your-repo-name/issues"""
 
     msg += """
-    5. Read the README for more info: https://github.com/jacopoabramo/redsun-plugin-template
+    5. Read the README for more info: https://github.com/redsun-acquisition/redsun-plugin-template
     """
     return msg
 
