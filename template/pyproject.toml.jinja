@@ -49,24 +49,25 @@ dev = [
     "pytest-cov",  # https://pytest-cov.readthedocs.io/en/latest/
 ]
 
-{% if github_repository_url != 'provide later' -%}
+{%- if github_repository_url != 'provide later' -%}
 [project.urls]
 "Bug Tracker" = "https://github.com/{{github_username_or_organization}}/{{plugin_name}}/issues"
 "Documentation" = "https://github.com/{{github_username_or_organization}}/{{plugin_name}}#README.md"
 "Source Code" = "https://github.com/{{github_username_or_organization}}/{{plugin_name}}"
 "User Support" = "https://github.com/{{github_username_or_organization}}/{{plugin_name}}/issues"
-{%- endif %}
-
+{%- endif -%}
 
 [project.entry-points]
 [project.entry-points."redsun.plugins.config"]
 config = "redsun.plugins.{{module_name}}:{{config_info}}"
 
+{%- if plugin_type == "Model" -%}
 [project.entry-points."redsun.plugins.model"]
-model = "redsun.plugins.{{module_name}}:MyModel"
-
+model = "redsun.plugins.{{module_name}}:{{class_baseline}}"
+{%- else -%}
 [project.entry-points."redsun.plugins.controller"]
-controller = "redsun.plugins.{{module_name}}:MyController"
+controller = "redsun.plugins.{{module_name}}:{{class_baseline}}"
+{%- endif -%}
 
 [tool.ruff]
 target-version = "py39"
