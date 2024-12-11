@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING
 
 from sunflare.engine.bluesky import (
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
 
 
 class {{ class_baseline }}({{ plugin_base }}):
-    def __init__(self, name: str, model_info: "MotorModelInfo") -> None:
+    def __init__(self, name: str, model_info: MotorModelInfo) -> None:
         
         # in this function, initialize your detector API via
         # whatever python package it uses; after initializing a detector,
