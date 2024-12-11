@@ -53,12 +53,13 @@ github_repository_url:
         - provide later
         - https://github.com/{{github_username_or_organization}}/{{plugin_name}}
 plugin_engine:
-    default: ExEngine
+    default: Bluesky
     help: Which engine does your plugin use?
     type: str
     choices:
-        - ExEngine
         - Bluesky
+        - ExEngine
+    when: false
 plugin_type:
     default: Model
     help: What type of plugin is this?
