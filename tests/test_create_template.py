@@ -44,7 +44,6 @@ def test_create_template_model_exengine(
         "plugin_type": "Model",
         "plugin_model_type": plugin_model_type,
         "mm_support": mm_support,
-        "use_git_tags_for_versioning": False,
         "install_precommit": False,
         "license": "MIT",
     }
@@ -89,7 +88,6 @@ def test_create_template_model_bluesky(copie: "Copie", plugin_model_type: str) -
         "plugin_engine": "Bluesky",
         "plugin_type": "Model",
         "plugin_model_type": plugin_model_type,
-        "use_git_tags_for_versioning": False,
         "install_precommit": False,
         "license": "MIT",
     }
@@ -129,7 +127,6 @@ def test_create_controller(copie: "Copie", plugin_engine: str) -> None:
         "github_repository_url": "provide later",
         "plugin_engine": plugin_engine,
         "plugin_type": "Controller",
-        "use_git_tags_for_versioning": False,
         "install_precommit": False,
         "license": "MIT",
     }

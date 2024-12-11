@@ -1,6 +1,10 @@
+[build-system]
+requires ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "{{plugin_name}}"
-dynamic = ["version"]
+version = "0.1.0"
 description = "{{short_description}}"
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -10,7 +14,6 @@ authors = [
 ]
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
-    "Framework :: napari",
     "Intended Audience :: Developers",
     {% if license == "MIT" -%}
     "License :: OSI Approved :: MIT License",
@@ -29,10 +32,11 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering :: Image Processing",
+    "Topic :: Scientific/Engineering"
 ]
 requires-python = ">=3.10"
 dependencies = [
@@ -54,14 +58,6 @@ dev = [
 "User Support" = "https://github.com/{{github_username_or_organization}}/{{plugin_name}}/issues"
 {%- endif %}
 
-[build-system]
-{% if use_git_tags_for_versioning -%}
-requires = ["setuptools>=42.0.0", "wheel", "setuptools_scm"]
-{%- else -%}
-requires = ["setuptools>=42.0.0", "wheel"]
-{%- endif %}
-build-backend = "setuptools.build_meta"
-
 [tool.setuptools]
 include-package-data = true
 
@@ -71,60 +67,6 @@ where = ["src"]
 [tool.setuptools.package-data]
 "*" = ["*.yaml"]
 
-{% if use_git_tags_for_versioning %}
-[tool.setuptools_scm]
-write_to = "src/{{module_name}}/_version.py"
-{% else %}
-[tool.setuptools.dynamic]
-version = {attr = "{{module_name}}.__init__.__version__"}
-{%- endif %}
-
-[tool.black]
-line-length = 79
-target-version = ['py310', 'py311', 'py312']
-
 [tool.ruff]
-line-length = 79
-lint.select = [
-    "E", "F", "W", #flake8
-    "UP", # pyupgrade
-    "I", # isort
-    "BLE", # flake8-blind-exception
-    "B", # flake8-bugbear
-    "A", # flake8-builtins
-    "C4", # flake8-comprehensions
-    "ISC", # flake8-implicit-str-concat
-    "G", # flake8-logging-format
-    "PIE", # flake8-pie
-    "SIM", # flake8-simplify
-]
-lint.ignore = [
-    "E501", # line too long. let black handle this
-    "UP006", "UP007", # type annotation. As using magicgui require runtime type annotation then we disable this.
-    "SIM117", # flake8-simplify - some of merged with statements are not looking great with black, reanble after drop python 3.9
-]
-
-exclude = [
-    ".bzr",
-    ".direnv",
-    ".eggs",
-    ".git",
-    ".mypy_cache",
-    ".pants.d",
-    ".ruff_cache",
-    ".svn",
-    ".tox",
-    ".venv",
-    "__pypackages__",
-    "_build",
-    "buck-out",
-    "build",
-    "dist",
-    "node_modules",
-    "venv",
-    "*vendored*",
-    "*_vendor*",
-]
-
-target-version = "py310"
-fix = true
+target-version = "py39"
+extend-exclude = ["docs", "tests", "noxfile.py"]

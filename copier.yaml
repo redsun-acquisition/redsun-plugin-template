@@ -86,11 +86,6 @@ plugin_motor_type: # required for exengine
         - Single
         - Dual
     when: "{{ plugin_type == 'Model' and plugin_model_type == 'Motor' and plugin_engine == 'ExEngine' }}"
-use_git_tags_for_versioning:
-    default: false
-    help: Use git tags for versioning?
-    type: bool
-    when: false
 install_precommit:
     default: false
     help: Install pre-commit? (Code formatting checks)

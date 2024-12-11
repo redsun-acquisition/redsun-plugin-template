@@ -85,34 +85,6 @@ inside your plugin's module in the file `_reader.py`. You can then edit the code
 file to achieve the reading functionality you want. For more information on
 readers see the [specification reference][reader-spec].
 
-## use_git_tags_for_versioning
-
-The default for this prompt is `"n"`. If you choose `"n"` for this prompt, you
-will have to manually manage your version numbers when you create new releases
-of your package. You can do this in `pyproject.toml` under the `version` field (you
-will also need to update the version string wherever else you may have used it
-in your package, such as in `__init__.py`). Choosing `"n"` at this prompt will
-add `version = 0.1.0` to your `pyproject.toml`.
-
-If you choose `"y"` for this prompt, your package will be set up to have
-[`setuptools_scm`](https://github.com/pypa/setuptools_scm) manage versions for
-you based on your git tags. See the
-[readme](https://github.com/jacopoabramo/redsun-plugin-template?tab=readme-ov-file#automatic-deployment-and-version-management)
-for details.
-
-This option typically requires the least effort to manage versioning for your
-package, and will prevent errors with manually managed version strings going out
-of sync with your package metadata. The main downside is that your users will
-not be able to install directly from a github release asset, and will need to
-have git installed if they want to directly install from a git repository.
-(This does _not_, however, affect the standard method of installing with `pip`, or
-installing from a pre-packaged wheel file.)
-
-```{note}
-In order to use this option, you must run `git init` once in
-your package's root directory.
-```
-
 ## install_precommit
 
 The default for this prompt is `"n"`.
