@@ -72,3 +72,10 @@ controller = "redsun.plugins.{{module_name}}:{{class_baseline}}"
 [tool.ruff]
 target-version = "py39"
 extend-exclude = ["docs", "tests", "noxfile.py"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests"]
+
+[tool.hatch.build.targets.wheel]
+only-include = ["src"]
+sources = ["src"]
