@@ -2,6 +2,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from typing import OrderedDict
+
+from event_model.documents.event_descriptor import DataKey
+
 from sunflare.engine.bluesky import (
     {{ plugin_base }},
     Status
@@ -9,10 +13,6 @@ from sunflare.engine.bluesky import (
 
 if TYPE_CHECKING:
     from .config import MyDetectorInfo
-
-    from typing import OrderedDict
-
-    from event_model.documents.event_descriptor import DataKey
 
 
 class {{ class_baseline }}({{ plugin_base }}):
