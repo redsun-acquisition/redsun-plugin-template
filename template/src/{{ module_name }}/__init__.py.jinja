@@ -1,10 +1,10 @@
 __version__ = "0.1.0"
 
 
-from .{{ plugin_engine.lower() }}.{{ module_import }} import {{ class_baseline }}
-from .{{ plugin_engine.lower() }}.config import {{ config_import }}
+from .engine.{{ plugin_engine.lower() }}.{{ module_import }} import {{ class_baseline }}
+from .engine.{{ plugin_engine.lower() }}.config import {{ config_info }}
 
 __all__ = (
     "{{ class_import }}",
-    "{{ config_import }}",
+    "{{ config_info }}",
 )
