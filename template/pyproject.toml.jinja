@@ -64,7 +64,7 @@ config = "redsun.plugins.{{module_name}}:{{config_info}}"
 {%- if plugin_type == "Model" -%}
 [project.entry-points."redsun.plugins.model"]
 model = "redsun.plugins.{{module_name}}:{{class_baseline}}"
-{%- else -%}
+{%- elif plugin_type == "Controller" -%}
 [project.entry-points."redsun.plugins.controller"]
 controller = "redsun.plugins.{{module_name}}:{{class_baseline}}"
 {%- endif -%}
