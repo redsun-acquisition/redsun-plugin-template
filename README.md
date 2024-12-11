@@ -34,7 +34,7 @@ mamba activate redsun-template
 After creating the environment, install the requirements listed in `requirements.txt`:
 
 ```bash
-python -m pip install -r requirements.txt
+python -m pip install copier copier-templates-extensions jinja2-time pytest pytest-copie
 ```
 
 Then you can generate a new RedSun plugin project:
