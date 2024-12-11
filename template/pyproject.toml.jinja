@@ -1,5 +1,5 @@
 [build-system]
-requires ["hatchling"]
+requires ["hatchling>=1.8.0"]
 build-backend = "hatchling.build"
 
 [project]
@@ -9,8 +9,7 @@ description = "{{short_description}}"
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
-  {name = "{{full_name}}"},
-  {email = "{{email}}"},
+  { name = "{{full_name}}", email = "{{email}}" },
 ]
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
@@ -38,7 +37,7 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering"
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 dependencies = [
     "numpy",
 ]
@@ -58,14 +57,16 @@ dev = [
 "User Support" = "https://github.com/{{github_username_or_organization}}/{{plugin_name}}/issues"
 {%- endif %}
 
-[tool.setuptools]
-include-package-data = true
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[project.entry-points]
+[project.entry-points."redsun.plugins.config"]
+config = "redsun.plugins.{{module_name}}:{{config_info}}"
 
-[tool.setuptools.package-data]
-"*" = ["*.yaml"]
+[project.entry-points."redsun.plugins.model"]
+model = "redsun.plugins.{{module_name}}:MyModel"
+
+[project.entry-points."redsun.plugins.controller"]
+controller = "redsun.plugins.{{module_name}}:MyController"
 
 [tool.ruff]
 target-version = "py39"
