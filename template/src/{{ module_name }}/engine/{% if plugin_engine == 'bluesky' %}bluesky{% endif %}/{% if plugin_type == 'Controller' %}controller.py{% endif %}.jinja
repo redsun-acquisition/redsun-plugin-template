@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING
 
 from sunflare.controller.base import (
@@ -14,9 +16,9 @@ if TYPE_CHECKING:
 
 class {{ class_baseline }}({{ plugin_base }}):
     def __init__(self, 
-                ctrl_info: "{{ config_info }}", 
-                handler: "EngineHandler", 
-                virtual_bus: "VirtualBus", 
-                module_bus: "VirtualBus"
+                ctrl_info: {{ config_info }}, 
+                handler: EngineHandler, 
+                virtual_bus: VirtualBus, 
+                module_bus: VirtualBus
             ) -> None:
         super().__init__(ctrl_info, handler, virtual_bus, module_bus)

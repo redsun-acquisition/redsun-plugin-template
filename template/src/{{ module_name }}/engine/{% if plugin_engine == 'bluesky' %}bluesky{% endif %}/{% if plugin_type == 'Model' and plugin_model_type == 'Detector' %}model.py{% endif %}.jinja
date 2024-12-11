@@ -1,15 +1,22 @@
+from __future__ import annotations
+
 from typing import TYPE_CHECKING
 
 from sunflare.engine.bluesky import (
-    {{ plugin_base }}
+    {{ plugin_base }},
+    Status
 )
 
-from .config import MyDetectorInfo
-
 if TYPE_CHECKING:
+    from .config import MyDetectorInfo
+
+    from typing import OrderedDict
+
+    from event_model.documents.event_descriptor import DataKey
+
 
 class {{ class_baseline }}({{ plugin_base }}):
-    def __init__(self, name: str, model_info: 'MyDetectorInfo') -> None:
+    def __init__(self, name: str, model_info: MyDetectorInfo) -> None:
 
         # if you want to use default values,
         # delete all parameters after "exposure"
