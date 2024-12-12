@@ -2,24 +2,25 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from typing import OrderedDict
-
-from event_model.documents.event_descriptor import DataKey
-
-from sunflare.engine.bluesky import (
-    {{ plugin_base }},
-    Status
-)
+from sunflare.engine.bluesky import {{ plugin_base }}, Status
 
 if TYPE_CHECKING:
-    from .config import MyDetectorInfo
+    from typing import Union, Any
+
+    from collections import OrderedDict
+
+    from .config import {{ config_info }}
+
+    from event_model.documents.event_descriptor import DataKey
+
+    from bluesky.protocols import Reading
 
 
 class {{ class_baseline }}({{ plugin_base }}):
-    def __init__(self, name: str, model_info: MyDetectorInfo) -> None:
+    def __init__(self, name: str, model_info: {{ config_info }}) -> None:
 
-        # if you want to use default values,
-        # delete all parameters after "exposure"
+        # initialize your detector API via
+        # whatever python package it uses
         super().__init__(name, model_info)
 
     def shutdown(self) -> None:

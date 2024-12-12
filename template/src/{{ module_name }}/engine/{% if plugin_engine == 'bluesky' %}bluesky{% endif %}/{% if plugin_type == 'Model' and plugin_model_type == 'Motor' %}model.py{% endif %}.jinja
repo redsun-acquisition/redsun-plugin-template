@@ -2,24 +2,21 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sunflare.engine.bluesky import (
-    {{ plugin_base }},
-    Status
-)
+from sunflare.engine.bluesky import {{ plugin_base }}, Status
 
 if TYPE_CHECKING:
     from typing import Union
 
-    from sunflare.config import MotorModelInfo
+    from .config import {{ config_info }}
+
     from sunflare.types import AxisLocation
 
 
 class {{ class_baseline }}({{ plugin_base }}):
-    def __init__(self, name: str, model_info: MotorModelInfo) -> None:
+    def __init__(self, name: str, model_info: {{ config_info }}) -> None:
         
-        # in this function, initialize your detector API via
-        # whatever python package it uses; after initializing a detector,
-        # define the initial exposure time for your detector
+        # initialize your motor API via
+        # whatever python package it uses
         super().__init__(name, model_info)
 
     def shutdown(self) -> None:
