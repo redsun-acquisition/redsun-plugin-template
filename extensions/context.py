@@ -6,7 +6,12 @@ class ContextUpdater(ContextHook):
         """Add hook to update context based on user's input."""
         if context["plugin_type"] == "Controller":
             context["module_import"] = "controller"
-            context["plugin_base"] = "ComputationalController"
+            if context["plugin_engine"] == "ExEngine":
+                context["plugin_base"] = "ExEngineController"
+                context["registry"] = "ExEngineDeviceRegistry"
+            else: # Bluesky
+                context["plugin_base"] = "BlueskyController"
+                context["registry"] = "BlueskyDeviceRegistry"
             context["class_baseline"] = "MyController"
         else:
             if context["plugin_engine"] == "ExEngine":
