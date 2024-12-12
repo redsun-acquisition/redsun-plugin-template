@@ -59,7 +59,7 @@ dev = [
 
 [project.entry-points]
 [project.entry-points."redsun.plugins.config"]
-config = "redsun.plugins.{{module_name}}:{{config_info}}"
+config = "{{module_name}}:{{config_info}}"
 
 {% if plugin_type == "Model" -%}
 [project.entry-points."redsun.plugins.model"]
