@@ -58,7 +58,6 @@ plugin_engine:
     type: str
     choices:
         - Bluesky
-        - ExEngine
     when: false
 plugin_type:
     default: Model
