@@ -101,10 +101,9 @@ for your plugin. Choosing any of the options will lead to a boilerplate `LICENSE
 file being added to the root of your plugin directory, as well as the [SPDX identifier](https://spdx.org/licenses/)
 for that license being listed in your `setup.cfg` under the `license` field.
 
-License options include: [BSD-3], [MIT], [MPL v2.0], [Apache v2.0], [GNU GPL v3.0], or [GNU LGPL v3.0]
+License options include: [BSD-3], [MIT], [Apache v2.0], [GNU GPL v3.0], or [GNU LGPL v3.0]
 
 [mit]: http://opensource.org/licenses/MIT
-[mpl v2.0]: https://www.mozilla.org/media/MPL/2.0/index.txt
 [bsd-3]: http://opensource.org/licenses/BSD-3-Clause
 [gnu gpl v3.0]: http://www.gnu.org/licenses/gpl-3.0.txt
 [gnu lgpl v3.0]: http://www.gnu.org/licenses/lgpl-3.0.txt
