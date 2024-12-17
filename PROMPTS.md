@@ -1,4 +1,4 @@
-# napari Plugin Prompt Reference
+# RedSun plugin prompt reference
 
 When you first run the template to build a RedSun plugin, you will be prompted
 for some configuration options. Your answers to these prompts will determine
@@ -36,7 +36,7 @@ entirely, and you may add it later if you wish.
 
 ## plugin_name
 
-This is the desired name for your napari plugin, and will also be the name
+This is the desired name for your RedSun plugin, and will also be the name
 of the Python package directory we create for you. The plugin name you choose
 will be listed in `pyproject.toml` under the `name` field, as well as under
 `[options.entry_points]`. If you publish your package to PyPI, users will be able
@@ -65,7 +65,7 @@ We create a folder with this name inside the top level directory of your plugin,
 and populate it with code templates.
 
 This module will also be added as the entry point to your plugin in `pyproject.toml`.
-This is how napari discovers plugins on launch.
+This is how RedSun discovers plugins on launch.
 
 ## display_name
 
@@ -78,19 +78,12 @@ This should be a short description of what your plugin does. It will be listed
 in `pyproject.toml` under the `description` field. If you publish your plugin to PyPI,
 this description will also be listed alongside your package name in search results.
 
-## include_reader_plugin
-
-Choosing `"y"` for this prompt will create an example reader implementation
-inside your plugin's module in the file `_reader.py`. You can then edit the code in this
-file to achieve the reading functionality you want. For more information on
-readers see the [specification reference][reader-spec].
-
 ## install_precommit
 
 The default for this prompt is `"n"`.
 
 If you choose "y" for this prompt, then [pre-commit](ttps://pre-commit.com/) will be installed.
-Among other things, it includes checks for code linting and best practices in napari plugins.
+Among other things, it includes checks for code linting and best practices in RedSun plugins.
 
 ## install_dependabot
 
@@ -110,13 +103,6 @@ for that license being listed in your `setup.cfg` under the `license` field.
 
 License options include: [BSD-3], [MIT], [MPL v2.0], [Apache v2.0], [GNU GPL v3.0], or [GNU LGPL v3.0]
 
-[spec]: https://napari.org/stable/plugins/manifest.html
-[reader-spec]: https://napari.org/stable/plugins/contributions.html#contributions-readers
-[writer-spec]: https://napari.org/stable/plugins/contributions.html#contributions-writers
-[theme-spec]: https://napari.org/stable/plugins/contributions.html#contributions-themes
-[widget-spec]: https://napari.org/stable/plugins/contributions.html#contributions-widgets
-[sample-data-spec]: https://napari.org/stable/plugins/contributions.html#contributions-sample-data
-[glob pattern]: https://en.wikipedia.org/wiki/Glob_(programming)
 [mit]: http://opensource.org/licenses/MIT
 [mpl v2.0]: https://www.mozilla.org/media/MPL/2.0/index.txt
 [bsd-3]: http://opensource.org/licenses/BSD-3-Clause

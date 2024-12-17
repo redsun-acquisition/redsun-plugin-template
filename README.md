@@ -1,4 +1,4 @@
-# napari-plugin-template
+# redsun-plugin-template
 
 [Copier](https://copier.readthedocs.io/en/stable/) template for authoring RedSun plugins.
 
@@ -169,7 +169,7 @@ Alternatively, you can also create your documentation on GitHub using [Wikis]
 ### Pre-commit
 
 This template includes a default yaml configuration for [pre-commit](https://pre-commit.com/).
-Among other things, it includes checks for best practices in napari plugins.
+Among other things, it includes checks for best practices in RedSun plugins.
 You may edit the config at `.pre-commit-config.yaml`
 
 To use it run:
@@ -195,7 +195,6 @@ You will still need to enable Dependabot in your github settings, [see the instr
 - `README.md` file that contains useful information about your plugin
 - Continuous integration configuration for [github actions] that handles testing
   and deployment of tagged releases
-- git-tag-based version management with [setuptools_scm]
 - Choose from several licenses, including [BSD-3], [MIT], [MPL v2.0], [Apache
   v2.0], [GNU GPL v3.0], or [GNU LGPL v3.0]
 
@@ -203,21 +202,15 @@ You will still need to enable Dependabot in your github settings, [see the instr
 
 Details on why this plugin template is using the `src` layout can be found [here](https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure) and [here](https://hynek.me/articles/testing-packaging/).
 
-## Issues
-
-If you encounter any problems with this template, please
-[file an issue](https://github.com/napari/napari-plugin-template/issues/new)
-along with a detailed description.
-
 ## License
 
-Distributed under the terms of the [BSD-3] license, `napari-plugin-template`
+Distributed under the terms of the [BSD-3] license, `redsun-plugin-template`
 is free and open source software.
 
 [copier]: https://github.com/copier-org/copier
 [pypi]: https://pypi.org/
 [nox]: https://nox.thea.codes/en/stable/
-[file an issue]: https://github.com/napari/napari-plugin-template/issues
+[file an issue]: https://github.com/redsun-acquisition/redsun-plugin-template/issues
 [sphinx]: https://www.sphinx-doc.org/en/master/usage/quickstart.html
 [mkdocs]: https://www.mkdocs.org/getting-started/
 [jupyterbook]: https://jupyterbook.org/en/stable/start/your-first-book.html
@@ -235,4 +228,3 @@ is free and open source software.
 [osi]: https://opensource.org/
 [github actions]: https://github.com/features/actions
 [new github repository]: https://help.github.com/en/github/getting-started-with-github/create-a-repo
-[setuptools_scm]: https://github.com/pypa/setuptools_scm
