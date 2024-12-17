@@ -30,21 +30,9 @@ class ContextUpdater(ContextHook):
         if context["plugin_type"] == "Model":
             context["module_import"] = "model"
             if context["plugin_model_type"] == "Detector":
-                context = self._set_bluesky_detector(context)
+                context["plugin_base"] = "BlueskyDetectorModel"
             else: # motor model
-                context = self._set_bluesky_motor(context)
-        return context
-    
-    def _set_bluesky_detector(self, context: dict) -> dict:
-        """Set Bluesky detector model base class."""
-        context["plugin_base"] = "BlueskyDetectorModel"
-        context["class_baseline"] = "MyDetectorModel"
-        return context
-    
-    def _set_bluesky_motor(self, context: dict) -> dict:
-        """Select which Bluesky motor model base class to use."""
-        context["plugin_base"] = "BlueskyMotorModel"
-        context["class_baseline"] = "MyMotorModel"
+                context["plugin_base"] = "BlueskyMotorModel"
         return context
     
     
