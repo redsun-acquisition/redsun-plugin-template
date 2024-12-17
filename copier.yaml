@@ -52,13 +52,6 @@ github_repository_url:
     choices:
         - provide later
         - https://github.com/{{github_username_or_organization}}/{{plugin_name}}
-plugin_engine:
-    default: Bluesky
-    help: Which engine does your plugin use?
-    type: str
-    choices:
-        - Bluesky
-    when: false
 plugin_type:
     default: Model
     help: What type of plugin is this?
@@ -67,25 +60,26 @@ plugin_type:
         - Model
         - Controller
 plugin_model_type:
-    default: none
+    default: Motor
     help: What type of model plugin is this?
     type: str
     choices:
-        - Detector
         - Motor
+        - Detector
     when: "{{ plugin_type == 'Model' }}"
-mm_support:
-    default: false
-    help: Is your device supported by Micro-Manager?
-    type: bool
-    when : "{{ plugin_type == 'Model' and plugin_engine == 'ExEngine' }}"
-plugin_motor_type: # required for exengine
+class_baseline:
+    default: >-
+        {% if plugin_type == 'Model' %}
+            {% if plugin_model_type == 'Motor' %}
+                MyMotorModel
+            {% else %}
+                MyDetectorModel
+            {% endif %}
+        {% else %}
+            MyController
+        {% endif %}
+    help: The name of the class that will be used as the baseline for your plugin
     type: str
-    help: Is your motor single or dual-axis (XY)?
-    choices:
-        - Single
-        - Dual
-    when: "{{ plugin_type == 'Model' and plugin_model_type == 'Motor' and plugin_engine == 'ExEngine' }}"
 install_precommit:
     default: false
     help: Install pre-commit? (Code formatting checks)
