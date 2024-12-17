@@ -69,15 +69,15 @@ plugin_model_type:
     when: "{{ plugin_type == 'Model' }}"
 class_baseline:
     default: >-
-        {% if plugin_type == 'Model' %}
-            {% if plugin_model_type == 'Motor' %}
+        {%- if plugin_type == 'Model' -%}
+            {%- if plugin_model_type == 'Motor' -%}
                 MyMotorModel
-            {% else %}
+            {%- else -%}
                 MyDetectorModel
-            {% endif %}
-        {% else %}
+            {%- endif -%}
+        {%- else -%}
             MyController
-        {% endif %}
+        {%- endif -%}
     help: The name of the class that will be used as the baseline for your plugin
     type: str
 install_precommit:
