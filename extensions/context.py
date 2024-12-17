@@ -2,6 +2,7 @@ from copier_templates_extensions import ContextHook
 
 class ContextUpdater(ContextHook):
 
+    # TODO: add entry point context for controllers
     def hook(self, context: dict) -> dict:
         """Add hook to update context based on user's input."""
         if context["plugin_type"] == "Controller":
@@ -22,7 +23,7 @@ class ContextUpdater(ContextHook):
                 context["config_base"] = "DetectorModelInfo"
             else: # motor model
                 context["config_base"] = "MotorModelInfo"
-        context["config_info"] = context["class_baseline"].split("Model") + "Info"
+        context["config_info"] = context["class_baseline"] + "Info"
         return context
 
     def _chose_bluesky_context(self, context: dict) -> dict:
@@ -31,8 +32,12 @@ class ContextUpdater(ContextHook):
             context["module_import"] = "model"
             if context["plugin_model_type"] == "Detector":
                 context["plugin_base"] = "BlueskyDetectorModel"
+                context["entry_point_group"] = "redsun.plugins.detectors"
             else: # motor model
                 context["plugin_base"] = "BlueskyMotorModel"
+                context["entry_point_group"] = "redsun.plugins.motors"
+        context["entry_point_value"] = context["class_baseline"].lower()
+        context["entry_point_cfg_value"] = context["class_baseline"].lower() + "_config"
         return context
     
     

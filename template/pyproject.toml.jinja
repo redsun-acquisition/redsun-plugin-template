@@ -58,16 +58,9 @@ dev = [
 {%- endif %}
 
 [project.entry-points]
-[project.entry-points."redsun.plugins.config"]
-config = "{{module_name}}:{{config_info}}"
-
-{% if plugin_type == "Model" -%}
-[project.entry-points."redsun.plugins.model"]
-model = "{{module_name}}:{{class_baseline}}"
-{%- elif plugin_type == "Controller" -%}
-[project.entry-points."redsun.plugins.controller"]
-controller = "{{module_name}}:{{class_baseline}}"
-{%- endif %}
+[project.entry-points."redsun.plugins.{{entry_point_group}}"]
+{{entry_point_cfg_value}} = "{{module_name}}:{{config_info}}"
+{{entry_point_value}} = "{{module_name}}:{{class_baseline}}"
 
 [tool.ruff]
 target-version = "py39"
