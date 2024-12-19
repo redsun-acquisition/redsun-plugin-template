@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
     from .config import {{ config_info }}
 
-    from sunflare.types import AxisLocation
+    from sunflare.types import Location
 
 
 class {{ class_baseline }}({{ plugin_base }}):
@@ -27,11 +27,11 @@ class {{ class_baseline }}({{ plugin_base }}):
         """
         raise NotImplementedError()
 
-    def set(self, value: AxisLocation[Union[float, int, str]]) -> Status:
+    def set(self, value: dict[str, Location[Union[float, int, str]]]) -> Status:
         """Return a ``Status`` that is marked done when the device is done moving."""
         raise NotImplementedError()
 
-    def locate(self) -> AxisLocation[Union[float, int, str]]:
+    def locate(self) -> dict[str, Location[Union[float, int, str]]]:
         """Return the current location of a Device.
 
         While a ``Readable`` reports many values, a ``Movable`` will have the
