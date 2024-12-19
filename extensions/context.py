@@ -8,7 +8,7 @@ class ContextUpdater(ContextHook):
         if context["plugin_type"] == "Controller":
             context["module_import"] = "controller"
             context["plugin_base"] = "BlueskyController"
-            context["registry"] = "BlueskyDeviceRegistry"
+            context["registry"] = "DeviceRegistry"
             context["class_baseline"] = "MyController"
         else:
             context = self._chose_bluesky_context(context)        
@@ -31,10 +31,10 @@ class ContextUpdater(ContextHook):
         if context["plugin_type"] == "Model":
             context["module_import"] = "model"
             if context["plugin_model_type"] == "Detector":
-                context["plugin_base"] = "BlueskyDetectorModel"
+                context["plugin_base"] = "DetectorModel"
                 context["entry_point_group"] = "redsun.plugins.detectors"
             else: # motor model
-                context["plugin_base"] = "BlueskyMotorModel"
+                context["plugin_base"] = "MotorModel"
                 context["entry_point_group"] = "redsun.plugins.motors"
         context["entry_point_value"] = context["class_baseline"].lower()
         context["entry_point_cfg_value"] = context["class_baseline"].lower() + "_config"
