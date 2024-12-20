@@ -1,18 +1,14 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import Any, Union
 
 from sunflare.engine.bluesky import {{ plugin_base }}, Status
+from sunflare.types import Location
 
-if TYPE_CHECKING:
-    from typing import Union
-
-    from .config import {{ config_info }}
-
-    from sunflare.types import Location
+from .config import {{ config_info }}
 
 
-class {{ class_baseline }}({{ plugin_base }}):
+class {{ class_baseline }}({{ plugin_base }}[{{ config_info }}]):
     def __init__(self, name: str, model_info: {{ config_info }}) -> None:
         
         # initialize your motor API via
@@ -27,11 +23,11 @@ class {{ class_baseline }}({{ plugin_base }}):
         """
         raise NotImplementedError()
 
-    def set(self, value: dict[str, Location[Union[float, int, str]]]) -> Status:
+    def set(self, value: Union[float, int, str], *args, **kwargs) -> Status:
         """Return a ``Status`` that is marked done when the device is done moving."""
         raise NotImplementedError()
 
-    def locate(self) -> dict[str, Location[Union[float, int, str]]]:
+    def locate(self) -> Location[Union[float, int, str]]:
         """Return the current location of a Device.
 
         While a ``Readable`` reports many values, a ``Movable`` will have the
