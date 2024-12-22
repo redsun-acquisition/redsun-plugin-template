@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from typing import Any, Union
 
-from sunflare.engine.bluesky import {{ plugin_base }}, Status
-from sunflare.types import Location
+from bluesky.protocols import Location
+
+from sunflare.engine import {{ plugin_base }}, Status
 
 from .config import {{ config_info }}
 
