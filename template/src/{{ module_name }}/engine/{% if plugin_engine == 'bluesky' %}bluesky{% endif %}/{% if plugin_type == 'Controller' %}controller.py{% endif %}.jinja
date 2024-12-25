@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     from .config import {{ config_info }}
     
     from sunflare.engine.{{ plugin_engine }}.registry import {{ registry }}
-    from sunflare.virtualbus import VirtualBus
+    from sunflare.virtual import VirtualBus
 
 class {{ class_baseline }}({{ plugin_base }}):
     def __init__(self, 
