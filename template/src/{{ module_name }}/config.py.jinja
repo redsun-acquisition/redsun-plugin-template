@@ -1,5 +1,3 @@
-from typing import ClassVar
-from psygnal import SignalGroupDescriptor
 from sunflare.config import {{ config_base }}
 
 __all__ = ["{{ config_info }}"]
@@ -17,4 +15,3 @@ class {{ config_info }}({{ config_base }}):
     # ... and so on
 
     # end of user code
-    events: ClassVar[SignalGroupDescriptor] = SignalGroupDescriptor()

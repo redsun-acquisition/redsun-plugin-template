@@ -1,8 +1,13 @@
-__version__ = "0.1.0"
+from importlib.metadata import PackageNotFoundError, version
+
+try:
+    __version__ = version("{{ plugin_name }}")
+except PackageNotFoundError:  # pragma: no cover
+    __version__ = "unknown"
 
 
-from .engine.{{ plugin_engine.lower() }}.{{ module_import }} import {{ class_baseline }}
-from .engine.{{ plugin_engine.lower() }}.config import {{ config_info }}
+from .{{ module_import }} import {{ class_baseline }}
+from .config import {{ config_info }}
 
 __all__ = (
     "{{ class_baseline }}",

@@ -1,0 +1,44 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from sunflare.engine Status
+
+if TYPE_CHECKING:
+    from typing import Union, Any
+
+    from collections import OrderedDict
+
+    from .config import {{ config_info }}
+
+    from event_model.documents.event_descriptor import DataKey
+
+    from bluesky.protocols import Reading
+
+
+class {{ class_baseline }}:
+    def __init__(self, name: str, model_info: {{ config_info }}) -> None:
+
+        # initialize your detector API via
+        # whatever python package it uses
+        super().__init__(name, model_info)
+
+    def shutdown(self) -> None:
+        """Shutdown the detector.
+
+        Optional method.
+        Implement this to for graceful shutdown.
+        If not required, leave empty.
+        """
+        ...
+
+    def read_configuration(self) -> OrderedDict[str, Reading[Any]]:
+        """Provide same API as ``read`` but for slow-changing fields related to configuration.
+
+        Example: exposure time. These will typically be read only once per run.
+        """
+        raise NotImplementedError()
+
+    def describe_configuration(self) -> OrderedDict[str, DataKey]:
+        """Provide same API as ``describe``, but corresponding to the keys in ``read_configuration``."""
+        raise NotImplementedError()

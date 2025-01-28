@@ -191,7 +191,6 @@ You will still need to enable Dependabot in your github settings, [see the instr
 ## Features
 
 - Installable [PyPI] package
-- [nox] test suite, testing various python versions and platforms.
 - `README.md` file that contains useful information about your plugin
 - Continuous integration configuration for [github actions] that handles testing
   and deployment of tagged releases
@@ -209,12 +208,7 @@ is free and open source software.
 
 [copier]: https://github.com/copier-org/copier
 [pypi]: https://pypi.org/
-[nox]: https://nox.thea.codes/en/stable/
 [file an issue]: https://github.com/redsun-acquisition/redsun-plugin-template/issues
-[sphinx]: https://www.sphinx-doc.org/en/master/usage/quickstart.html
-[mkdocs]: https://www.mkdocs.org/getting-started/
-[jupyterbook]: https://jupyterbook.org/en/stable/start/your-first-book.html
-[wikis]: https://docs.github.com/en/communities/documenting-your-project-with-wikis
 [mit]: http://opensource.org/licenses/MIT
 [mpl v2.0]: https://www.mozilla.org/media/MPL/2.0/index.txt
 [bsd-3]: http://opensource.org/licenses/BSD-3-Clause
@@ -222,9 +216,5 @@ is free and open source software.
 [gnu lgpl v3.0]: http://www.gnu.org/licenses/lgpl-3.0.txt
 [apache v2.0]: http://www.apache.org/licenses/LICENSE-2.0
 [travis ci]: https://travis-ci.com/
-[appveyor]: http://www.appveyor.com/
-[pypa code of conduct]: https://www.pypa.io/en/latest/code-of-conduct/
-[osi_certified]: https://opensource.org/trademarks/osi-certified/web/osi-certified-120x100.png
-[osi]: https://opensource.org/
 [github actions]: https://github.com/features/actions
 [new github repository]: https://help.github.com/en/github/getting-started-with-github/create-a-repo

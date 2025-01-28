@@ -59,27 +59,30 @@ plugin_type:
     choices:
         - Model
         - Controller
-plugin_model_type:
-    default: Motor
-    help: What type of model plugin is this?
-    type: str
-    choices:
-        - Motor
-        - Detector
-    when: "{{ plugin_type == 'Model' }}"
+        - Widget
 class_baseline:
     default: >-
         {%- if plugin_type == 'Model' -%}
-            {%- if plugin_model_type == 'Motor' -%}
-                MyMotorModel
-            {%- else -%}
-                MyDetectorModel
-            {%- endif -%}
-        {%- else -%}
+            MyModel
+        {%- elif plugin_type == 'Controller' -%}
             MyController
+        {%- else -%}
+            MyWidget
         {%- endif -%}
     help: The name of the class that will be used as the baseline for your plugin
     type: str
+add_widget:
+    default: false
+    help: Add a widget for your controller?
+    type: bool
+    when: 
+        plugin_type: Controller
+widget_class_baseline:
+    default: MyWidget
+    help: The name of the class that will be used as the baseline for your widget
+    type: str
+    when:
+      add_widget: true
 install_precommit:
     default: false
     help: Install pre-commit? (Code formatting checks)
