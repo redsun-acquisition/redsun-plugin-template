@@ -57,9 +57,9 @@ plugin_type:
     help: What type of plugin is this?
     type: str
     choices:
-        - Model
-        - Controller
-        - Widget
+        Model
+        Controller
+        Widget
 class_baseline:
     default: >-
         {%- if plugin_type == 'Model' -%}
@@ -69,20 +69,18 @@ class_baseline:
         {%- else -%}
             MyWidget
         {%- endif -%}
-    help: The name of the class that will be used as the baseline for your plugin
+    help: The name of the class that will be used as the plugin baseline
     type: str
 add_widget:
     default: false
     help: Add a widget for your controller?
     type: bool
-    when: 
-        plugin_type: Controller
+    when: "{{ plugin_type == 'Controller' }}"
 widget_class_baseline:
     default: MyWidget
-    help: The name of the class that will be used as the baseline for your widget
+    help: The name of the class that will be used as the widget baseline
     type: str
-    when:
-      add_widget: true
+    when: "{{ add_widget }}"
 install_precommit:
     default: false
     help: Install pre-commit? (Code formatting checks)
