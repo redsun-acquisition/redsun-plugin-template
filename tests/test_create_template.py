@@ -5,6 +5,7 @@ test_create_template
 from __future__ import annotations
 
 import pytest
+import json
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -62,6 +63,13 @@ def test_create_model(copie: Copie) -> None:
 
     # make sure the .vscode folder was generated
     assert result.project_dir.joinpath(".vscode").is_dir()
+    
+    # check that launch.json exists and
+    # contains the correct configuration name
+    assert result.project_dir.joinpath(".vscode", "launch.json").is_file()
+    with open(result.project_dir.joinpath(".vscode", "launch.json")) as f:
+        content = json.load(f)
+        assert content["configurations"][0]["name"] == "plugin-debug"
 
 
 @pytest.mark.filterwarnings("ignore::UserWarning")
@@ -113,6 +121,16 @@ def test_create_controller(copie: Copie) -> None:
         "src", "foo_bar", "widget.py"
     ).is_file()
 
+    # make sure the .vscode folder was generated
+    assert result.project_dir.joinpath(".vscode").is_dir()
+
+    # check that launch.json exists and
+    # contains the correct configuration name
+    assert result.project_dir.joinpath(".vscode", "launch.json").is_file()
+    with open(result.project_dir.joinpath(".vscode", "launch.json")) as f:
+        content = json.load(f)
+        assert content["configurations"][0]["name"] == "plugin-debug"
+
 @pytest.mark.filterwarnings("ignore::UserWarning")
 def test_create_widget(copie: Copie) -> None:
     answers = {
@@ -162,6 +180,16 @@ def test_create_widget(copie: Copie) -> None:
     # make sure the .vscode folder was generated
     assert result.project_dir.joinpath(".vscode").is_dir()
 
+    # make sure the .vscode folder was generated
+    assert result.project_dir.joinpath(".vscode").is_dir()
+
+    # check that launch.json exists and
+    # contains the correct configuration name
+    assert result.project_dir.joinpath(".vscode", "launch.json").is_file()
+    with open(result.project_dir.joinpath(".vscode", "launch.json")) as f:
+        content = json.load(f)
+        assert content["configurations"][0]["name"] == "plugin-debug"
+
 @pytest.mark.filterwarnings("ignore::UserWarning")
 def test_create_model_controller_widget(copie: Copie) -> None:
     answers = {
@@ -210,3 +238,10 @@ def test_create_model_controller_widget(copie: Copie) -> None:
 
     # make sure the .vscode folder was generated
     assert result.project_dir.joinpath(".vscode").is_dir()
+
+    # check that launch.json exists and
+    # contains the correct configuration name
+    assert result.project_dir.joinpath(".vscode", "launch.json").is_file()
+    with open(result.project_dir.joinpath(".vscode", "launch.json")) as f:
+        content = json.load(f)
+        assert content["configurations"][0]["name"] == "plugin-debug"

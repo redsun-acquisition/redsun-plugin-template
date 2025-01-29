@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "{{ module_name }}-debug",
+            "name": "plugin-debug",
             "type": "debugpy",
             "request": "launch",
             "module": "pytest"

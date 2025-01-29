@@ -115,5 +115,5 @@ venv.bak/
 # Benchmarking results
 .asv/
 
-# vscode (but not the template)
+# vscode
 .vscode/

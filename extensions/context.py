@@ -5,6 +5,11 @@ class ContextUpdater(ContextHook):
     # TODO: add entry point context for controllers
     def hook(self, context: dict) -> dict:
         """Add hook to update context based on user's input."""
+
+        # trick copier into creating the
+        # .vscode directory with pre-defined
+        # user settings
+        context["vscode"] = ".vscode"
         if context["plugin_type"] == "Controller":
             context["module_import"] = "controller"
             context["entry_point_group"] = "controllers"
