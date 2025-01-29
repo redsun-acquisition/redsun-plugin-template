@@ -69,7 +69,7 @@ def test_create_model(copie: Copie) -> None:
     assert result.project_dir.joinpath(".vscode", "launch.json").is_file()
     with open(result.project_dir.joinpath(".vscode", "launch.json")) as f:
         content = json.load(f)
-        assert content["configurations"][0]["name"] == "plugin-debug"
+        assert content["configurations"][0]["name"] == "foo-bar-debug"
 
 
 @pytest.mark.filterwarnings("ignore::UserWarning")
@@ -129,7 +129,7 @@ def test_create_controller(copie: Copie) -> None:
     assert result.project_dir.joinpath(".vscode", "launch.json").is_file()
     with open(result.project_dir.joinpath(".vscode", "launch.json")) as f:
         content = json.load(f)
-        assert content["configurations"][0]["name"] == "plugin-debug"
+        assert content["configurations"][0]["name"] == "foo-bar-debug"
 
 @pytest.mark.filterwarnings("ignore::UserWarning")
 def test_create_widget(copie: Copie) -> None:
@@ -188,7 +188,7 @@ def test_create_widget(copie: Copie) -> None:
     assert result.project_dir.joinpath(".vscode", "launch.json").is_file()
     with open(result.project_dir.joinpath(".vscode", "launch.json")) as f:
         content = json.load(f)
-        assert content["configurations"][0]["name"] == "plugin-debug"
+        assert content["configurations"][0]["name"] == "foo-bar-debug"
 
 @pytest.mark.filterwarnings("ignore::UserWarning")
 def test_create_model_controller_widget(copie: Copie) -> None:
@@ -244,4 +244,4 @@ def test_create_model_controller_widget(copie: Copie) -> None:
     assert result.project_dir.joinpath(".vscode", "launch.json").is_file()
     with open(result.project_dir.joinpath(".vscode", "launch.json")) as f:
         content = json.load(f)
-        assert content["configurations"][0]["name"] == "plugin-debug"
+        assert content["configurations"][0]["name"] == "foo-bar-debug"
