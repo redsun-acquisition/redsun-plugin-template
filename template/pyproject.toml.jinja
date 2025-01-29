@@ -94,7 +94,14 @@ extend-exclude = ["docs", "tests"]
 
 [tool.ruff.lint]
 extend-select = ["D"]
-ignore = ["D100","D104"] # https://docs.astral.sh/ruff/rules/undocumented-public-package/
+ignore = [
+    "D100", # https://docs.astral.sh/ruff/rules/undocumented-public-module/
+    "D104", # https://docs.astral.sh/ruff/rules/undocumented-public-package/ 
+    "D107", # https://docs.astral.sh/ruff/rules/undocumented-public-init/
+]
+
+[tool.hatch.version]
+source = "vcs"
 
 [tool.hatch.build.targets.sdist]
 include = ["src", "tests"]
