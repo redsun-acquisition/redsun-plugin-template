@@ -60,6 +60,9 @@ def test_create_model(copie: Copie) -> None:
         "src", "foo_bar", "widget.py"
     ).is_file()
 
+    # make sure the .vscode folder was generated
+    assert result.project_dir.joinpath(".vscode").is_dir()
+
 
 @pytest.mark.filterwarnings("ignore::UserWarning")
 def test_create_controller(copie: Copie) -> None:
@@ -156,6 +159,9 @@ def test_create_widget(copie: Copie) -> None:
         "src", "foo_bar", "controller.py"
     ).is_file()
 
+    # make sure the .vscode folder was generated
+    assert result.project_dir.joinpath(".vscode").is_dir()
+
 @pytest.mark.filterwarnings("ignore::UserWarning")
 def test_create_model_controller_widget(copie: Copie) -> None:
     answers = {
@@ -201,3 +207,6 @@ def test_create_model_controller_widget(copie: Copie) -> None:
     assert not result.project_dir.joinpath(
         "src", "foo_bar", "model.py"
     ).is_file()
+
+    # make sure the .vscode folder was generated
+    assert result.project_dir.joinpath(".vscode").is_dir()
