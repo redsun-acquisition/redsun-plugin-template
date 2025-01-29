@@ -8,6 +8,9 @@ except PackageNotFoundError:  # pragma: no cover
 
 from .{{ module_import }} import {{ class_baseline }}
 from .config import {{ config_info }}
+{% if add_widget -%}
+from .widget import {{ widget_class_baseline }}
+{%- endif %}
 
 __all__ = (
     "{{ class_baseline }}",

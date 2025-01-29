@@ -9,8 +9,7 @@ class ContextUpdater(ContextHook):
             context["module_import"] = "controller"
             context["entry_point_group"] = "controllers"
             if context["add_widget"]:
-                context["widget_module_import"] = "widget"
-                context["widget_entry_point_group"] = "widgets"
+                context["widget_entry_point_value"] = context["widget_class_baseline"].lower()
         elif context["plugin_type"] == "Model":
             context["module_import"] = "model"
             context["entry_point_group"] = "models"

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling>=1.8.0", "hatch-vcs"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
@@ -61,6 +61,10 @@ dev = [
 [project.entry-points."redsun.plugins.{{entry_point_group}}"]
 {{entry_point_cfg_value}} = "{{module_name}}:{{config_info}}"
 {{entry_point_value}} = "{{module_name}}:{{class_baseline}}"
+{% if add_widget -%}
+[project.entry-points."redsun.plugins.widgets"]
+{{widget_entry_point_value}} = "{{module_name}}:{{widget_class_baseline}}"
+{%- endif %}
 
 [tool.ruff]
 target-version = "py39"
