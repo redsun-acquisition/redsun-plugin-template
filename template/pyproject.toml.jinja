@@ -66,6 +66,28 @@ dev = [
 {{widget_entry_point_value}} = "{{module_name}}:{{widget_class_baseline}}"
 {%- endif %}
 
+[tool.coverage.run]
+source = ["{{ module_name }}"]
+omit = [
+    "src/{{ module_name }}/tests/conftest.py"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "@abstractmethod",
+    "if TYPE_CHECKING:",
+    "@overload",
+    "except ImportError",
+    "except PackageNotFoundError",
+    "raise NotImplementedError()",
+]
+
+[tool.mypy]
+files = "src/**/*.py"
+exclude = ["docs", "tests", "build"]
+disable_error_code = ["import-untyped"]
+pretty = true
+
 [tool.ruff]
 target-version = "py39"
 extend-exclude = ["docs", "tests"]
