@@ -1,5 +1,13 @@
 # Getting started
 
+Before downloading the template, the following installations are required:
+
+- [git](https://git-scm.com/)
+- an installed version of [Python](https://www.python.org/) (minimum required version is 3.9);
+  - alternatively, either [conda](https://docs.conda.io/projects/conda/en/stable/) or [mamba](https://mamba.readthedocs.io/en/latest/) installed
+- [hatch](https://hatch.pypa.io/1.13/install/)
+
+
 The recomended development environment is [VSCode](https://code.visualstudio.com/). The template provides a [pre-shipped configuration](https://github.com/redsun-acquisition/redsun-plugin-template/tree/main/template/%7B%7B%20vscode%20%7D%7D) with the standard tooling used accross the Redsun ecosystem.
 
 ## Setup environment
@@ -26,13 +34,13 @@ venv\scripts\Activate
 :::
 :::{tab-item} conda
 ```{code-block} shell
-conda create -n my-plugin python=3.10
+conda create -n my-plugin python=3.9
 conda activate my-plugin
 ```
 :::
 :::{tab-item} mamba
 ```{code-block} shell
-mamba create -n my-plugin python=3.10
+mamba create -n my-plugin python=3.9
 mamba activate my-plugin
 ```
 :::
@@ -61,3 +69,7 @@ In your active environment, generate a new Redsun plugin with the following comm
 # change it accordingly
 copier copy --trust https://github.com/napari/napari-plugin-template my-plugin
 ```
+
+At this point, follow the command line [prompts] to generate your plugin.
+
+[prompts]: ./prompts.md
