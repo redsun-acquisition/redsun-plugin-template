@@ -9,6 +9,7 @@ This documentation shows how to create plugins for the [Redsun] ecosystem using 
 :maxdepth: 1
 
 getting_started
+prompts
 changelog
 license
 ```
