@@ -4,3 +4,8 @@ This documentation shows how to create plugins for the [Redsun] ecosystem using 
 
 [redsun]: https://redsun-acquisition.github.io/
 [copier]: https://copier.readthedocs.io/en/stable/
+
+```{toctree}
+
+changelog
+```
