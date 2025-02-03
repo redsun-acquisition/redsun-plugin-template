@@ -112,12 +112,12 @@ Just like [`class_baseline`](#class_baseline), if the response to the [`add_widg
 
 ## `install_precommit`
 
-If you choose "y" for this prompt, then [pre-commit](ttps://pre-commit.com/) will be installed.
+If you choose `"y"` for this prompt, then [pre-commit](https://pre-commit.com/) will be installed.
 Among other things, it includes checks for code linting and best practices in Redsun plugins.
 
 The default for this prompt is `"n"`.
 
-## license
+## `license`
 
 This prompt allows you to choose from a variety of open source licensing options
 for your plugin. Choosing any of the options will lead to a boilerplate `LICENSE`
