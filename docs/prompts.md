@@ -1,4 +1,4 @@
-# RedSun plugin prompt reference
+# Prompt reference
 
 When you first run the template to build a RedSun plugin, you will be prompted
 for some configuration options. Your answers to these prompts will determine
@@ -39,10 +39,10 @@ entirely, and you may add it later if you wish.
 This is the desired name for your RedSun plugin, and will also be the name
 of the Python package directory we create for you. The plugin name you choose
 will be listed in `pyproject.toml` under the `name` field, as well as under
-`[options.entry_points]`. If you publish your package to PyPI, users will be able
+`[options.entry_points]`. If you publish your package to [PyPI], users will be able
 to install your package using
 
-```
+```{code-block} shell
 pip install plugin_name
 ```
 
@@ -66,11 +66,6 @@ and populate it with code templates.
 
 This module will also be added as the entry point to your plugin in `pyproject.toml`.
 This is how RedSun discovers plugins on launch.
-
-## display_name
-
-> [!NOTE]
-> TODO
 
 ## short_description
 
@@ -100,3 +95,4 @@ License options include: [BSD-3], [MIT], [Apache v2.0], [GNU GPL v3.0], or [GNU 
 [gnu gpl v3.0]: http://www.gnu.org/licenses/gpl-3.0.txt
 [gnu lgpl v3.0]: http://www.gnu.org/licenses/lgpl-3.0.txt
 [apache v2.0]: http://www.apache.org/licenses/LICENSE-2.0
+[pypi]: https://pypi.org/
