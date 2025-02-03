@@ -219,3 +219,4 @@ is free and open source software.
 [travis ci]: https://travis-ci.com/
 [github actions]: https://github.com/features/actions
 [new github repository]: https://help.github.com/en/github/getting-started-with-github/create-a-repo
+[getting started]: https://redsun-acquisition.github.io/redsun-plugin-template/getting_started/
