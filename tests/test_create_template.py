@@ -1,7 +1,3 @@
-"""
-test_create_template
---------------------
-"""
 from __future__ import annotations
 
 import pytest
@@ -20,7 +16,6 @@ def test_create_model(copie: Copie) -> None:
         "email": "yourmail@mail.com",
         "github_username_or_organization": "githubuser",
         "plugin_name": "foo-bar",
-        "display_name": "Foo Bar",
         "module_name": "foo_bar",
         "short_description": "Super fast foo for all the bars",
         "github_repository_url": "provide later",
@@ -81,7 +76,6 @@ def test_create_controller(copie: Copie) -> None:
         "email": "yourmail@mail.com",
         "github_username_or_organization": "githubuser",
         "plugin_name": "foo-bar",
-        "display_name": "Foo Bar",
         "module_name": "foo_bar",
         "short_description": "Super fast foo for all the bars",
         "github_repository_url": "provide later",
@@ -138,7 +132,6 @@ def test_create_widget(copie: Copie) -> None:
         "email": "yourmail@mail.com",
         "github_username_or_organization": "githubuser",
         "plugin_name": "foo-bar",
-        "display_name": "Foo Bar",
         "module_name": "foo_bar",
         "short_description": "Super fast foo for all the bars",
         "github_repository_url": "provide later",
@@ -197,7 +190,6 @@ def test_create_model_controller_widget(copie: Copie) -> None:
         "email": "yourmail@mail.com",
         "github_username_or_organization": "githubuser",
         "plugin_name": "foo-bar",
-        "display_name": "Foo Bar",
         "module_name": "foo_bar",
         "short_description": "Super fast foo for all the bars",
         "github_repository_url": "provide later",
