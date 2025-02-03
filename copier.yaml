@@ -19,15 +19,13 @@ plugin_name:
         {% if not (plugin_name | regex_search('^[a-z][a-z0-9\-]+$')) %}
         plugin_name must be lowercase, no spaces, and may contain hyphens.
         {% endif %}
-display_name:
-    placeholder: RedSun FooBar
-    default: RedSun FooBar
-    help: Display name for your plugin
+github_repository_url:
+    default: provide later
+    help: Github repository URL
     type: str
-    validator: >-
-        {% if not (display_name | regex_search('(.|\s)*\S(.|\s)*')) %}
-        display_name must not be empty
-        {% endif %}
+    choices:
+        - provide later
+        - https://github.com/{{github_username_or_organization}}/{{plugin_name}}
 module_name:
     placeholder: "{{ plugin_name|lower|replace('-', '_') }}"
     default: "{{ plugin_name|lower|replace('-', '_') }}"
@@ -45,13 +43,6 @@ short_description:
         {% if not (short_description | regex_search('(.|\s)*\S(.|\s)*')) %}
         Description must not be empty
         {% endif %}
-github_repository_url:
-    default: provide later
-    help: Github repository URL
-    type: str
-    choices:
-        - provide later
-        - https://github.com/{{github_username_or_organization}}/{{plugin_name}}
 plugin_type:
     default: Model
     help: What type of plugin is this?
