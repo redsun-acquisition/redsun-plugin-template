@@ -1,6 +1,6 @@
 # Getting started
 
-The reccomended development environment is [VSCode](https://code.visualstudio.com/). The plugin provides a pre-shipped configuration with the standard tooling used accross the Redsun ecosystem.
+The recomended development environment is [VSCode](https://code.visualstudio.com/). The template provides a [pre-shipped configuration](https://github.com/redsun-acquisition/redsun-plugin-template/tree/main/template/%7B%7B%20vscode%20%7D%7D) with the standard tooling used accross the Redsun ecosystem.
 
 ## Setup environment
 
