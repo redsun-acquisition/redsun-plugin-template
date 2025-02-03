@@ -1,50 +1,25 @@
 # redsun-plugin-template
 
-[Copier](https://copier.readthedocs.io/en/stable/) template for authoring RedSun plugins.
+[copier](https://copier.readthedocs.io/en/stable/) template for authoring Redsun plugins.
 
 > [!CAUTION]
 > This template is still a work in progress. You should not use this until author removes this notice.
 
 > [!NOTE]
-> This repo is not meant to be cloned/forked directly! Please read the [Getting started] page for usage.
+> This repo is not meant to be cloned/forked directly!
+
+## Features
+
+- [hatchling](https://hatch.pypa.io/latest/) as build backend
+  - [hatch-vcs](https://github.com/ofek/hatch-vcs) for version management
+- [VSCode](https://code.visualstudio.com/) extensions setup
+- [ruff](https://docs.astral.sh/ruff/) for linting and code formatting
+- [mypy](https://github.com/python/mypy) for type checking
+- [pre-commit](https://pre-commit.com/) hooks for ruff and file checking
 
 ## Getting Started
 
-### Create your plugin package
-
-For a safe usage of the template, it is reccomended to create a new environment before generating it:
-
-<details>
-<summary>conda</summary>
-
-```bash
-conda create -n redsun-template python=3.10
-conda activate redsun-template
-```
-
-</details> 
-<details>
-<summary>mamba</strong></summary>
-
-```bash
-mamba create -n redsun-template python=3.10
-mamba activate redsun-template
-```
-</details>
-
-After creating the environment, install the requirements listed in `requirements.txt`:
-
-```bash
-python -m pip install copier copier-templates-extensions jinja2-time pytest pytest-copie
-```
-
-Then you can generate a new RedSun plugin project:
-
-```bash
-copier copy --trust https://github.com/redsun-acquisition/redsun-plugin-template my-redsun-plugin
-```
-
-Copier prompts you for information regarding your plugin. See [prompts reference](./PROMPTS.md) for a detailed description.
+See the [Getting started] page in the documentation.
 
 ### Initialize a git repository in your package
 
