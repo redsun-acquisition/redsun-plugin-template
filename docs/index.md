@@ -6,6 +6,7 @@ This documentation shows how to create plugins for the [Redsun] ecosystem using 
 [copier]: https://copier.readthedocs.io/en/stable/
 
 ```{toctree}
+:maxdepth: 1
 
 changelog
 ```
