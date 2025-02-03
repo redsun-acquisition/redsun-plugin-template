@@ -12,7 +12,8 @@ author = 'Jacopo Abramo'
 
 exclude_patterns = ['_build']
 
-extensions = ['myst_parser', 'sphinx.ext.githubpages']
+extensions = ['myst_parser', 'sphinx.ext.githubpages', 'sphinx_design']
+myst_enable_extensions = ['attrs_block', 'colon_fence']
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
