@@ -5,7 +5,8 @@
 > [!CAUTION]
 > This template is still a work in progress. You should not use this until author removes this notice.
 
-**NOTE: This repo is not meant to be cloned/forked directly! Please read "Getting Started" below**
+> [!NOTE]
+> This repo is not meant to be cloned/forked directly! Please read the [Getting started] page for usage.
 
 ## Getting Started
 
