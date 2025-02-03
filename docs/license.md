@@ -1,7 +1,7 @@
 # License
 
-`redsun-plugin-template` is a project inspired by [`napari-plugin-template`](https://github.com/napari/napari-plugin-template), which license is reported below.
-
+`redsun-plugin-template` is a project inspired by [`napari-plugin-template`](https://github.com/napari/napari-plugin-template).
+The license is reported below.
 
 > BSD 3-Clause License
 >
