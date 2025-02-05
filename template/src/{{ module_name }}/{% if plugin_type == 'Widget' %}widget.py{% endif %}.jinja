@@ -16,12 +16,17 @@ class {{ class_baseline }}(BaseQtWidget)
         *args: Any,
         **kwargs: Any,
     ) -> None:
-        super().__init__(*args, **kwargs)
-        self._config = config
-        self._virtual_bus = virtual_bus
+        super().__init__(
+            config: config, 
+            virtual_bus: virtual_bus, 
+            *args, 
+            **kwargs
+        )
 
     def registration_phase(self) -> None:
         """Register your signals to the virtual bus."
+        ...
 
     def connection_phase(self) -> None:
         """Connect your signals to the virtual bus."
+        ...
