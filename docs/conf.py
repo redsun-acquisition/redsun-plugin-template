@@ -33,7 +33,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": f"https://github.com/{github_repo}/{github_user}",
+            "url": f"https://github.com/{github_user}/{github_repo}",
             "icon": "fa-brands fa-square-github",
             "type": "fontawesome",
         }
