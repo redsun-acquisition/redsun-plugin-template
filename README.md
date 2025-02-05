@@ -64,7 +64,7 @@ When the tests are done, test coverage will be viewable at
 
 You will need to enable the [codecov](https://github.com/apps/codecov) github app
 for this to work. See [here](https://github.com/apps/codecov/installations/new)
-to install the codecov github app and give it access to your RedSun plugin repository.
+to install the codecov github app and give it access to your Redsun plugin repository.
 
 ### Set up automatic deployments
 
@@ -145,7 +145,7 @@ Alternatively, you can also create your documentation on GitHub using [Wikis]
 ### Pre-commit
 
 This template includes a default yaml configuration for [pre-commit](https://pre-commit.com/).
-Among other things, it includes checks for best practices in RedSun plugins.
+Among other things, it includes checks for best practices in Redsun plugins.
 You may edit the config at `.pre-commit-config.yaml`
 
 To use it run:

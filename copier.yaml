@@ -1,5 +1,5 @@
 full_name:
-    placeholder: RedSun plugin developer
+    placeholder: Redsun plugin developer
     help: Developer name
     type: str
 email:
@@ -36,7 +36,7 @@ module_name:
         module_name must be lowercase, no spaces, and may contain underscores.
         {% endif %}
 short_description:
-    placeholder: My new RedSun plugin
+    placeholder: My new Redsun plugin
     help: Short description of what your plugin does
     type: str
     validator: >-
