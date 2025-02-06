@@ -107,16 +107,11 @@ _exclude:
     - "_tasks.py"
 _message_after_copy: |
   "{{ plugin_name }}" has been created successfully!
-
   Next steps:
-
   1. Change directory to the plugin folder:
-  
     $ cd {{ _copier_conf.dst_path }}
-  
   2. Check the sunflare documentation (https://redsun-acquisition.github.io/sunflare/) to learn how to develop your plugin.
   3. Get coding!
-
   If you have any question, you can open a discussion thread: https://github.com/redsun-acquisition/redsun-plugin-template/discussions
   If any problems arise during the development process, please open an issue: https://github.com/redsun-acquisition/redsun-plugin-template/issues
   
