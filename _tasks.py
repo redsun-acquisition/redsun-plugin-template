@@ -104,12 +104,12 @@ Your plugin template is ready!  Next steps:
     3. Add your newly created github repo as a remote and push:
         git remote add origin https://github.com/{github_username_or_organization}/{plugin_name}.git
         git push -u origin main
-    4. The following default URLs have been added to `setup.cfg`:
+    4. The following default URLs have been added to pyproject.toml:
         Bug Tracker = https://github.com/{github_username_or_organization}/{plugin_name}/issues
         Documentation = https://github.com/{github_username_or_organization}/{plugin_name}#README.md
         Source Code = https://github.com/{github_username_or_organization}/{plugin_name}
         User Support = https://github.com/{github_username_or_organization}/{plugin_name}/issues
-        These URLs will be displayed on your plugin's napari hub page.
+        These URLs will be displayed on your plugin's PyPI page.
         You may wish to change these before publishing your plugin!"""
     else:
         msg += """
@@ -118,20 +118,18 @@ Your plugin template is ready!  Next steps:
     3. Add your newly created github repo as a remote and push:
         git remote add origin https://github.com/your-repo-username/your-repo-name.git
         git push -u origin main
-    Don't forget to add this url to setup.cfg!
-        [metadata]
-        url = https://github.com/your-repo-username/your-repo-name.git
-    4. Consider adding additional links for documentation and user support to setup.cfg
-    using the project_urls key e.g.
-        [metadata]
-        project_urls =
-            Bug Tracker = https://github.com/your-repo-username/your-repo-name/issues
-            Documentation = https://github.com/your-repo-username/your-repo-name#README.md
-            Source Code = https://github.com/your-repo-username/your-repo-name
-            User Support = https://github.com/your-repo-username/your-repo-name/issues"""
+    4. Consider adding additional links for documentation and user support to pyproject.toml
+    using the [project.urls] section, e.g.
+        [project.urls]
+        "Bug Tracker" = https://github.com/your-repo-username/your-repo-name/issues
+        "Documentation" = https://github.com/your-repo-username/your-repo-name#README.md
+        "Source Code" = https://github.com/your-repo-username/your-repo-name
+        "User Support" = https://github.com/your-repo-username/your-repo-name/issues"""
 
     msg += """
-    5. Read the README for more info: https://github.com/redsun-acquisition/redsun-plugin-template
+    If you have any questions, you can open a discussion thread: https://github.com/redsun-acquisition/redsun-plugin-template/discussions
+    If you encounter any problem, please open an issue: https://github.com/redsun-acquisition/redsun-plugin-template/issues
+    Happy coding! 🚀🚀🚀
     """
     return msg
 
