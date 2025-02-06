@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Prompt reference &#8212; Redsun plugin template</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=187304be"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'prompts';</script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Changelog" href="../changelog/" />
+    <link rel="prev" title="Getting started" href="../getting_started/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Redsun plugin template</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Prompt reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../changelog/">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../license/">
+    License
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/redsun-acquisition/redsun-plugin-template" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Prompt reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../changelog/">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../license/">
+    License
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/redsun-acquisition/redsun-plugin-template" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Prompt reference</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="prompt-reference">
+<h1>Prompt reference<a class="headerlink" href="#prompt-reference" title="Link to this heading">#</a></h1>
+<p>When you first run the template to build a Redsun plugin, you will be prompted
+for some configuration options. Your answers to these prompts will determine
+some aspects of your plugin package None of these configuration options are set in stone - you
+can always change these later, but it may require some effort.</p>
+<p>This document details what each of the prompts is asking, what the effect
+of your choice will be on your package directory/plugin, and any potential
+pitfalls of selecting one option over another.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If at any point you input a wrong prompt, you can always press <code class="docutils literal notranslate"><span class="pre">CTRL+C</span></code>
+and restart the generation process.</p>
+</div>
+<section id="list-of-prompts">
+<h2>List of prompts<a class="headerlink" href="#list-of-prompts" title="Link to this heading">#</a></h2>
+<section id="full-name">
+<h3><code class="docutils literal notranslate"><span class="pre">full_name</span></code><a class="headerlink" href="#full-name" title="Link to this heading">#</a></h3>
+<p>This is the name of the main author of this plugin, and will appear in your
+<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file. If you publish your plugin to PyPI, this name will also be listed
+in the author metadata field.</p>
+</section>
+<section id="email">
+<h3><code class="docutils literal notranslate"><span class="pre">email</span></code><a class="headerlink" href="#email" title="Link to this heading">#</a></h3>
+<p>This is your preferred contact email address and will appear in your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>
+file. If you publish your plugin to PyPI, this contact email address wil be
+listed next to the author’s name.</p>
+</section>
+<section id="github-username-or-organization">
+<h3><code class="docutils literal notranslate"><span class="pre">github_username_or_organization</span></code><a class="headerlink" href="#github-username-or-organization" title="Link to this heading">#</a></h3>
+<p>This is the GitHub username under whose account the GitHub repository for the
+plugin will be hosted. This username will be used to create the GitHub url
+for this plugin and will appear as part of the <code class="docutils literal notranslate"><span class="pre">[project.urls]</span></code> field in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p>
+<p>This username could be your personal username or the organization under which
+you plan to host the plugin on GitHub. If you do not wish to provide a username,
+simply press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> at this prompt, and choose <code class="docutils literal notranslate"><span class="pre">provide</span> <span class="pre">later</span></code> at the
+<code class="docutils literal notranslate"><span class="pre">github_repository_url</span></code> prompt - this will omit the <code class="docutils literal notranslate"><span class="pre">[project.urls]</span></code> field in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>
+entirely, and you may add it later if you wish.</p>
+</section>
+<section id="plugin-name">
+<h3><code class="docutils literal notranslate"><span class="pre">plugin_name</span></code><a class="headerlink" href="#plugin-name" title="Link to this heading">#</a></h3>
+<p>This is the desired name for your Redsun plugin, and will also be the name
+of the Python package directory we create for you. The plugin name you choose
+will be listed in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> under the <code class="docutils literal notranslate"><span class="pre">name</span></code> field, as well as under
+<code class="docutils literal notranslate"><span class="pre">[options.entry_points]</span></code>. If you publish your package to PyPI, users will be able
+to install your package using</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>plugin_name
+</pre></div>
+</div>
+<p>The convention for these packages is that they should have short, all-lowercase
+names, with <em>hyphens</em> (<code class="docutils literal notranslate"><span class="pre">-</span></code>) preferred over <em>underscores</em> (<code class="docutils literal notranslate"><span class="pre">_</span></code>) for separating words.</p>
+</section>
+<section id="github-repository-url">
+<h3><code class="docutils literal notranslate"><span class="pre">github_repository_url</span></code><a class="headerlink" href="#github-repository-url" title="Link to this heading">#</a></h3>
+<p>This will be the code repository link that is stored in the <code class="docutils literal notranslate"><span class="pre">[project.urls]</span></code> field in
+<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. The default option is generated using your <code class="docutils literal notranslate"><span class="pre">github_username_or_organization</span></code> and <code class="docutils literal notranslate"><span class="pre">plugin_name</span></code>.</p>
+<p>Choose <code class="docutils literal notranslate"><span class="pre">provide</span> <span class="pre">later</span></code> at this prompt if the default generated url is incorrect,
+or if you do not wish to provide a url at all. You can then add this link to your
+<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> later, under the <code class="docutils literal notranslate"><span class="pre">[project.urls]</span></code> field.</p>
+</section>
+<section id="module-name">
+<h3><code class="docutils literal notranslate"><span class="pre">module_name</span></code><a class="headerlink" href="#module-name" title="Link to this heading">#</a></h3>
+<p>This is the name of the Python module where the code for your plugin will live.
+We create a folder with this name inside the top level directory of your plugin,
+and populate it with code templates.</p>
+<p>This module will also be added as the entry point to your plugin in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.
+This is how Redsun discovers plugins on launch.</p>
+</section>
+<section id="short-description">
+<h3><code class="docutils literal notranslate"><span class="pre">short_description</span></code><a class="headerlink" href="#short-description" title="Link to this heading">#</a></h3>
+<p>This should be a short description of what your plugin does. It will be listed
+in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> under the <code class="docutils literal notranslate"><span class="pre">description</span></code> field. If you publish your plugin to PyPI,
+this description will also be listed alongside your package name in search results.</p>
+</section>
+<section id="plugin-type">
+<h3><code class="docutils literal notranslate"><span class="pre">plugin_type</span></code><a class="headerlink" href="#plugin-type" title="Link to this heading">#</a></h3>
+<p>This prompt generates the appropriate code block for your desired plugin. There are three (3) possible choices:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Controller</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Widget</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your project can host different plugin types. This initial choice will allow you to have a skeleton project ready for development which you can later on expand as you see fit.</p>
+</div>
+<p>For more information on each choice, consult the <a class="reference external" href="https://redsun-acquisition.github.io/sunflare/">Sunflare</a> documentation.</p>
+</section>
+<section id="class-baseline">
+<h3><code class="docutils literal notranslate"><span class="pre">class_baseline</span></code><a class="headerlink" href="#class-baseline" title="Link to this heading">#</a></h3>
+<p>The class name of your chosen <code class="docutils literal notranslate"><span class="pre">plugin_type</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">My&lt;your</span> <span class="pre">plugin</span> <span class="pre">choice&gt;</span></code>. For example, if you select a <code class="docutils literal notranslate"><span class="pre">Model</span></code> plugin type and
+the value of your <code class="docutils literal notranslate"><span class="pre">class_baseline</span></code> is <code class="docutils literal notranslate"><span class="pre">MyModel</span></code>, the template will generate a class in <code class="docutils literal notranslate"><span class="pre">model.py</span></code> equivalent to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyModel</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_info</span><span class="p">:</span> <span class="n">MyModelInfo</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+</section>
+<section id="add-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">add_widget</span></code><a class="headerlink" href="#add-widget" title="Link to this heading">#</a></h3>
+<p>If you select <code class="docutils literal notranslate"><span class="pre">Controller</span></code> as <code class="docutils literal notranslate"><span class="pre">plugin_type</span></code>, an additional option is to create an associated <code class="docutils literal notranslate"><span class="pre">Widget</span></code> plugin. This option is a boolean to choose whether or not to generate such plugin.</p>
+<p>The reason being that often <code class="docutils literal notranslate"><span class="pre">Controller</span></code> plugins may be directly controllable by the user interface to set some internal parameters or to read some acquired value.</p>
+<p>The default for this prompt is <code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code></p>
+</section>
+<section id="widget-class-baseline">
+<h3><code class="docutils literal notranslate"><span class="pre">widget_class_baseline</span></code><a class="headerlink" href="#widget-class-baseline" title="Link to this heading">#</a></h3>
+<p>Just like <a class="reference internal" href="#class-baseline"><code class="docutils literal notranslate"><span class="pre">class_baseline</span></code></a>, if the response to the <a class="reference internal" href="#add-widget"><code class="docutils literal notranslate"><span class="pre">add_widget</span></code></a> prompt is <code class="docutils literal notranslate"><span class="pre">&quot;yes&quot;</span></code>, you can provide a custom name for the widget class.</p>
+</section>
+<section id="install-precommit">
+<h3><code class="docutils literal notranslate"><span class="pre">install_precommit</span></code><a class="headerlink" href="#install-precommit" title="Link to this heading">#</a></h3>
+<p>If you choose <code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code> for this prompt, then <a class="reference external" href="https://pre-commit.com/">pre-commit</a> will be installed.
+Among other things, it includes checks for code linting and best practices in Redsun plugins.</p>
+<p>The default for this prompt is <code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code>.</p>
+</section>
+<section id="license">
+<h3><code class="docutils literal notranslate"><span class="pre">license</span></code><a class="headerlink" href="#license" title="Link to this heading">#</a></h3>
+<p>This prompt allows you to choose from a variety of open source licensing options
+for your plugin. Choosing any of the options will lead to a boilerplate <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code>
+file being added to the root of your plugin directory, as well as the <a class="reference external" href="https://spdx.org/licenses/">SPDX identifier</a>
+for that license being listed in your <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> under the <code class="docutils literal notranslate"><span class="pre">license</span></code> field.</p>
+<p>License options include: <a class="reference external" href="http://opensource.org/licenses/BSD-3-Clause">BSD-3</a>, <a class="reference external" href="http://opensource.org/licenses/MIT">MIT</a>, <a class="reference external" href="http://www.apache.org/licenses/LICENSE-2.0">Apache v2.0</a>, <a class="reference external" href="http://www.gnu.org/licenses/gpl-3.0.txt">GNU GPL v3.0</a>, or <a class="reference external" href="http://www.gnu.org/licenses/lgpl-3.0.txt">GNU LGPL v3.0</a></p>
+</section>
+</section>
+<section id="automated-tasks">
+<h2>Automated tasks<a class="headerlink" href="#automated-tasks" title="Link to this heading">#</a></h2>
+<p>Once all the prompts are provided, the template will perform some automated tasks (listed below in execution order):</p>
+<ol class="arabic simple">
+<li><p>it will check if <code class="docutils literal notranslate"><span class="pre">module_name</span></code> is compliant with <a class="reference external" href="https://peps.python.org/pep-0008/#package-and-module-names">PEP 8</a>;</p></li>
+<li><p>it will check if <code class="docutils literal notranslate"><span class="pre">plugin_name</span></code> does not contain underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>);</p></li>
+<li><p>it will invoke <a class="reference external" href="https://git-scm.com/docs/git-init"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code></a> to initialize your project repository;</p>
+<ul class="simple">
+<li><p>if the <code class="docutils literal notranslate"><span class="pre">install_precommit</span></code> answer is <code class="docutils literal notranslate"><span class="pre">y</span></code>, it will also download and install <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../getting_started/"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting started</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../changelog/"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Changelog</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-of-prompts">List of prompts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-name"><code class="docutils literal notranslate"><span class="pre">full_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#email"><code class="docutils literal notranslate"><span class="pre">email</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-username-or-organization"><code class="docutils literal notranslate"><span class="pre">github_username_or_organization</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plugin-name"><code class="docutils literal notranslate"><span class="pre">plugin_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-repository-url"><code class="docutils literal notranslate"><span class="pre">github_repository_url</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-name"><code class="docutils literal notranslate"><span class="pre">module_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#short-description"><code class="docutils literal notranslate"><span class="pre">short_description</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plugin-type"><code class="docutils literal notranslate"><span class="pre">plugin_type</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-baseline"><code class="docutils literal notranslate"><span class="pre">class_baseline</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-widget"><code class="docutils literal notranslate"><span class="pre">add_widget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-class-baseline"><code class="docutils literal notranslate"><span class="pre">widget_class_baseline</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-precommit"><code class="docutils literal notranslate"><span class="pre">install_precommit</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#license"><code class="docutils literal notranslate"><span class="pre">license</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-tasks">Automated tasks</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/prompts.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Jacopo Abramo.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
