@@ -18,7 +18,7 @@ This repo is not meant to be cloned/forked directly!
 - [ruff](https://docs.astral.sh/ruff/) for linting and code formatting
 - [mypy](https://github.com/python/mypy) for type checking
 - [pre-commit](https://pre-commit.com/) hooks for ruff and file checking
-- - automatic license selection between the following choices:
+- automatic license selection between the following choices:
   - [BSD-3]
   - [MIT]
   - [Apache v2.0]
