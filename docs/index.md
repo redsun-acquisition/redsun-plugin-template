@@ -18,9 +18,13 @@ This repo is not meant to be cloned/forked directly!
 - [ruff](https://docs.astral.sh/ruff/) for linting and code formatting
 - [mypy](https://github.com/python/mypy) for type checking
 - [pre-commit](https://pre-commit.com/) hooks for ruff and file checking
+- - automatic license selection between the following choices:
+  - [BSD-3]
+  - [MIT]
+  - [Apache v2.0]
+  - [GNU GPL v3.0]
+  - [GNU LGPL v3.0]
 
-[redsun]: https://redsun-acquisition.github.io/
-[copier]: https://copier.readthedocs.io/en/stable/
 
 ```{toctree}
 :maxdepth: 1
@@ -30,3 +34,11 @@ prompts
 changelog
 license
 ```
+
+[redsun]: https://redsun-acquisition.github.io/
+[copier]: https://copier.readthedocs.io/en/stable/
+[mit]: http://opensource.org/licenses/MIT
+[BSD-3]: http://opensource.org/licenses/BSD-3-Clause
+[gnu gpl v3.0]: http://www.gnu.org/licenses/gpl-3.0.txt
+[gnu lgpl v3.0]: http://www.gnu.org/licenses/lgpl-3.0.txt
+[apache v2.0]: http://www.apache.org/licenses/LICENSE-2.0

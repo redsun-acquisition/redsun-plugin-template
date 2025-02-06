@@ -19,7 +19,7 @@
 - [mypy](https://github.com/python/mypy) for type checking
 - [pre-commit](https://pre-commit.com/) hooks for ruff and file checking
 - [sphinx](https://www.sphinx-doc.org/en/master/) template in markdown language using [myst-parser](https://myst-parser.readthedocs.io/en/stable/)
-- automatic license selection between the following choicse:
+- automatic license selection between the following choices:
   - [BSD-3]
   - [MIT]
   - [Apache v2.0]
