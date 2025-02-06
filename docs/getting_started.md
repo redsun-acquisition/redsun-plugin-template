@@ -67,7 +67,7 @@ In your active environment, generate a new Redsun plugin with the following comm
 ```{code-block} shell
 # "my-plugin" is the name of your plugin folder;
 # change it accordingly
-copier copy --trust https://github.com/napari/napari-plugin-template my-plugin
+copier copy --trust https://github.com/redsun-acquisition/redsun-plugin-template my-plugin
 ```
 
 At this point, follow the command line [prompts] to generate your plugin.
