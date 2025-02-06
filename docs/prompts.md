@@ -10,7 +10,7 @@ of your choice will be on your package directory/plugin, and any potential
 pitfalls of selecting one option over another.
 
 ```{tip}
-If at any point you input a wrong prompt, you can always it `CTRL+C`
+If at any point you input a wrong prompt, you can always press `CTRL+C`
 and restart the generation process.
 ```
 
