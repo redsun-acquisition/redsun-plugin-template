@@ -48,9 +48,9 @@ plugin_type:
     help: What type of plugin is this?
     type: str
     choices:
-        Model
-        Controller
-        Widget
+        - Model
+        - Controller
+        - Widget
 class_baseline:
     default: >-
         {%- if plugin_type == 'Model' -%}
