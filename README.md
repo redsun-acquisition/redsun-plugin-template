@@ -1,4 +1,5 @@
 [![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-purple.json)](https://github.com/copier-org/copier)
+![GitHub Release](https://img.shields.io/github/v/release/redsun-acquisition/redsun-plugin-template)
 
 # redsun-plugin-template
 
