@@ -35,6 +35,10 @@ See the [Getting started](https://redsun-acquisition.github.io/redsun-plugin-tem
 
 If you encounter problems in using the template, please [file an issue].
 
+## Changelog 
+
+All noteable changes are reported [here](https://redsun-acquisition.github.io/redsun-plugin-template/changelog/).
+
 ## License
 
 Distributed under the terms of the [BSD-3](#license) license, `redsun-plugin-template`
