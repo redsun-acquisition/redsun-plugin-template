@@ -129,7 +129,7 @@ Your plugin template is ready!  Next steps:
     msg += """
     If you have any questions, you can open a discussion thread: https://github.com/redsun-acquisition/redsun-plugin-template/discussions
     If you encounter any problem, please open an issue: https://github.com/redsun-acquisition/redsun-plugin-template/issues
-    Happy coding! 🚀🚀🚀
+    Happy coding!
     """
     return msg
 
