@@ -2,13 +2,17 @@
 
 When you first run the template to build a Redsun plugin, you will be prompted
 for some configuration options. Your answers to these prompts will determine
-some aspects of your plugin package including its name, versioning behaviour,
-license, etc. None of these configuration options are set in stone - you
+some aspects of your plugin package None of these configuration options are set in stone - you
 can always change these later, but it may require some effort.
 
 This document details what each of the prompts is asking, what the effect
 of your choice will be on your package directory/plugin, and any potential
 pitfalls of selecting one option over another.
+
+```{tip}
+If at any point you input a wrong prompt, you can always it `CTRL+C`
+and restart the generation process.
+```
 
 ## `full_name`
 
