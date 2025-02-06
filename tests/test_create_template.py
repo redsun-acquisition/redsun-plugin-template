@@ -66,6 +66,13 @@ def test_create_model(copie: Copie) -> None:
         content = json.load(f)
         assert content["configurations"][0]["name"] == "foo-bar-debug"
 
+    # check that the documentation folder exists
+    assert result.project_dir.joinpath("docs").is_dir()
+    assert result.project_dir.joinpath("docs", "conf.py").is_file()
+    assert result.project_dir.joinpath("docs", "index.md").is_file()
+    assert result.project_dir.joinpath("docs", "make.bat").is_file()
+    assert result.project_dir.joinpath("docs", "Makefile").is_file()
+
 
 @pytest.mark.filterwarnings("ignore::UserWarning")
 def test_create_controller(copie: Copie) -> None:
@@ -124,6 +131,13 @@ def test_create_controller(copie: Copie) -> None:
     with open(result.project_dir.joinpath(".vscode", "launch.json")) as f:
         content = json.load(f)
         assert content["configurations"][0]["name"] == "foo-bar-debug"
+    
+    # check that the documentation folder exists
+    assert result.project_dir.joinpath("docs").is_dir()
+    assert result.project_dir.joinpath("docs", "conf.py").is_file()
+    assert result.project_dir.joinpath("docs", "index.md").is_file()
+    assert result.project_dir.joinpath("docs", "make.bat").is_file()
+    assert result.project_dir.joinpath("docs", "Makefile").is_file()
 
 @pytest.mark.filterwarnings("ignore::UserWarning")
 def test_create_widget(copie: Copie) -> None:
@@ -182,6 +196,13 @@ def test_create_widget(copie: Copie) -> None:
     with open(result.project_dir.joinpath(".vscode", "launch.json")) as f:
         content = json.load(f)
         assert content["configurations"][0]["name"] == "foo-bar-debug"
+    
+    # check that the documentation folder exists
+    assert result.project_dir.joinpath("docs").is_dir()
+    assert result.project_dir.joinpath("docs", "conf.py").is_file()
+    assert result.project_dir.joinpath("docs", "index.md").is_file()
+    assert result.project_dir.joinpath("docs", "make.bat").is_file()
+    assert result.project_dir.joinpath("docs", "Makefile").is_file()
 
 @pytest.mark.filterwarnings("ignore::UserWarning")
 def test_create_model_controller_widget(copie: Copie) -> None:
@@ -237,3 +258,10 @@ def test_create_model_controller_widget(copie: Copie) -> None:
     with open(result.project_dir.joinpath(".vscode", "launch.json")) as f:
         content = json.load(f)
         assert content["configurations"][0]["name"] == "foo-bar-debug"
+    
+    # check that the documentation folder exists
+    assert result.project_dir.joinpath("docs").is_dir()
+    assert result.project_dir.joinpath("docs", "conf.py").is_file()
+    assert result.project_dir.joinpath("docs", "index.md").is_file()
+    assert result.project_dir.joinpath("docs", "make.bat").is_file()
+    assert result.project_dir.joinpath("docs", "Makefile").is_file()
