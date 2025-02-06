@@ -1,3 +1,5 @@
+[![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-purple.json)](https://github.com/copier-org/copier)
+
 # redsun-plugin-template
 
 [copier](https://copier.readthedocs.io/en/stable/) template for authoring Redsun plugins.
@@ -16,6 +18,7 @@
 - [ruff](https://docs.astral.sh/ruff/) for linting and code formatting
 - [mypy](https://github.com/python/mypy) for type checking
 - [pre-commit](https://pre-commit.com/) hooks for ruff and file checking
+- [sphinx](https://www.sphinx-doc.org/en/master/) template in markdown language using [myst-parser](https://myst-parser.readthedocs.io/en/stable/)
 
 ## Getting Started
 
@@ -117,30 +120,6 @@ and available for pip install with:
 # for example
 pip install my-redsun-plugin
 ```
-
-### Running tests locally
-
-Tests are automatically setup to run on github when you push to your repository.
-
-You can run your tests locally with [pytest](https://docs.pytest.org/en/stable/).
-You'll need to make sure that your package is installed in your environment,
-along with testing requirements (specified in the setup.cfg `extras_require` section):
-
-```bash
-pip install -e ".[testing]"
-pytest
-```
-
-### Create your documentation
-
-Documentation generation is not included in this template.
-We recommend following the getting started guides for one of the following documentation generation tools:
-
-1. [Sphinx]
-2. [MkDocs]
-3. [JupyterBook]
-
-Alternatively, you can also create your documentation on GitHub using [Wikis]
 
 ### Pre-commit
 
