@@ -5,8 +5,9 @@
 
 [copier](https://copier.readthedocs.io/en/stable/) template for authoring Redsun plugins.
 
-> [!CAUTION]
-> This template is still a work in progress. You should not use this until author removes this notice.
+> [!WARNING]
+> The Redsun ecosystem is still a work in progress. You may use this template at your discretion,
+but be aware of possible breaking changes in [Redsun](https://github.com/redsun-acquisition/redsun) or [Sunflare](https://github.com/redsun-acquisition/sunflare).
 
 > [!NOTE]
 > This repo is not meant to be cloned/forked directly!
