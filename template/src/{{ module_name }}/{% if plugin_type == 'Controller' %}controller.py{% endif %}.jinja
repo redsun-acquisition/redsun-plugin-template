@@ -1,10 +1,12 @@
 from __future__ import annotations
 
-from typing import Mapping
+from typing import Mapping, TYPE_CHECKING, Any
 from functools import partial
 
 from sunflare.model import ModelProtocol
 from sunflare.virtual import VirtualBus
+
+from bluesky.utils import MsgGenerator
 
 if TYPE_CHECKING:
     from .config import {{ config_info }}
@@ -17,11 +19,13 @@ class {{ class_baseline }}:
     # >>> from sunflare.virtual import Signal
 
     def __init__(self,
-                ctrl_info: {{ config_info }}, 
-                models: Mapping[str, ModelProtocol]
-                virtual_bus: VirtualBus,
-            ) -> None:
+        ctrl_info: {{ config_info }}, 
+        models: Mapping[str, ModelProtocol],
+        virtual_bus: VirtualBus,
+    ) -> None:
         self._ctrl_info = ctrl_info
+        self._virtual_bus = virtual_bus
+        self._plans: list[partial[MsgGenerator[Any]]] = []
         
         # you should select which models
         # to memorize by defining your
@@ -53,6 +57,6 @@ class {{ class_baseline }}:
     @property
     def plans(self) -> list[partial[MsgGenerator[Any]]]:
         """List of available plans."""
-        ...
+        self._plans
 
 
