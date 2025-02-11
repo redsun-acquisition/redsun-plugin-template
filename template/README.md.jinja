@@ -19,11 +19,11 @@ You can install `{{plugin_name}}` via [pip]:
     pip install {{plugin_name}}
 
 
-{% if github_repository_url != 'provide later' %}
+{% if github_repository_url != 'provide later' -%}
 To install latest development version :
 
     pip install git+https://github.com/{{github_username_or_organization}}/{{plugin_name}}.git
-{% endif %}
+{% endif -%}
 
 ## Contributing
 
@@ -47,9 +47,9 @@ If you encounter any problems, please [file an issue] along with a detailed desc
 [Apache Software License 2.0]: http://www.apache.org/licenses/LICENSE-2.0
 [Mozilla Public License 2.0]: https://www.mozilla.org/media/MPL/2.0/index.txt
 [redsun-plugin-template]: https://github.com/redsun-acquisition/redsun-plugin-template
-{% if github_repository_url != 'provide later' %}
+{% if github_repository_url != 'provide later' -%}
 [file an issue]: https://github.com/{{github_username_or_organization}}/{{plugin_name}}/issues
-{% endif %}
+{% endif -%}
 [Redsun]: https://github.com/redsun-acquisition/redsun
 [pip]: https://pypi.org/project/pip/
 [pytest]: https://docs.pytest.org/en/stable/
