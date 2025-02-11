@@ -57,6 +57,6 @@ class {{ class_baseline }}:
     @property
     def plans(self) -> list[partial[MsgGenerator[Any]]]:
         """List of available plans."""
-        self._plans
+        return self._plans
 
 
